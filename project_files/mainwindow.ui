@@ -38,6 +38,7 @@
    <addaction name="menuVar1"/>
    <addaction name="menuVar2"/>
   </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -46,7 +47,6 @@
     <bool>false</bool>
    </attribute>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionVarvar1">
    <property name="text">
     <string>var1var1</string>
