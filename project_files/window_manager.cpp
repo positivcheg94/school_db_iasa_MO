@@ -6,7 +6,7 @@ QString DBNAME = "school";
 
 window_manager::window_manager(QObject *parent) : QObject(parent)
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
+    db=QSqlDatabase::addDatabase("QPSQL");
     db.setHostName(HOST);
     db.setPort(5432);
     db.setDatabaseName(DBNAME);
