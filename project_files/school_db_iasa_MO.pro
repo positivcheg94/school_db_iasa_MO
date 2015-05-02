@@ -15,16 +15,21 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = school_db_iasa_MO
 TEMPLATE = app
 
-
-SOURCES += main.cpp\
-    mainwindow.cpp \
+SOURCES = window_manager.cpp\
     login_screen.cpp \
-    manager_menu.cpp
+    manager_menu.cpp \
+    mainwindow.cpp \
+    main.cpp\
 
-HEADERS  += mainwindow.h \
+
+
+
+HEADERS = window_manager.h\
+    mainwindow.h \
     login_screen.h \
-    manager_menu.h
+    manager_menu.h \
 
-FORMS    += mainwindow.ui\
+
+FORMS = mainwindow.ui\
     login_screen.ui \
     manager_menu.ui
