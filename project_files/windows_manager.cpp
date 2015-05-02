@@ -13,6 +13,8 @@ windows_manager::windows_manager(QObject *parent) : QObject(parent)
     db.setConnectOptions("connect_timeout=2");
     ls = new login_screen(db);
     connect(ls,SIGNAL(loginSucceed(QString)),this,SLOT(process_login(QString)));
+
+    man_menu = new manager_menu;
 }
 
 windows_manager::~windows_manager(){
@@ -32,6 +34,7 @@ void windows_manager::process_login(QString role){
     }
     else if (role == "hr"){
         qDebug() << "role - hr";
+        man_menu->show();
 
     }
     else if (role == "hr"){

@@ -3,6 +3,8 @@
 
 #include "login_screen.h"
 
+#include "manager_menu.h"
+
 #include <QObject>
 
 #include <QSqlDatabase>
@@ -33,6 +35,7 @@ private slots:
 private:
     QSqlDatabase db;
     login_screen* ls;
+    manager_menu* man_menu;
 };
 
 #endif // WINDOWS_MANAGER_H
