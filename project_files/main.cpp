@@ -1,17 +1,35 @@
 #include "mainwindow.h"
+#include "login_screen.h"
+
 #include <QApplication>
 #include <QDebug>
+#include <QMessageBox>
 
 #include <QSql>
 #include <QSqlDatabase>
 #include <QSqlError>
+#include <QSqlQuery>
+#include <QSqlQueryModel>
+
+const QString HOST = "localhost";
+const int PORT = 5432;
+const QString DBNAME = "school";
+
 
 int main(int argc, char *argv[])
 {
-    QString host = QString("176.36.190.134");
+    QApplication a(argc, argv);
+    QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
+    db.setHostName(HOST);
+    db.setPort(5432);
+    db.setDatabaseName(DBNAME);
+    db.setConnectOptions("connect_timeout=2");
+
+    /*
+    QString host = QString("localhost");
     QString dbname = QString("school");
-    QString user = QString("postgres");
-    QString pswd = QString("yang_db");
+    QString user = QString("admin_ivanov");
+    QString pswd = QString("55555");
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
     db.setHostName(host);
@@ -20,7 +38,8 @@ int main(int argc, char *argv[])
     db.setUserName(user);
     db.setPassword(pswd);
     db.setConnectOptions("connect_timeout=2");
-    bool connectioncheck = db.open();
+    QSqlDatabase ddb = QSqlDatabase(db);
+    bool connectioncheck = ddb.open();
 
     if (connectioncheck == true){
         qDebug() << "Connection to database established." << endl;
@@ -28,13 +47,30 @@ int main(int argc, char *argv[])
     else {
         qDebug() << "Error for database " << db.databaseName() << " :" << db.lastError().text() << endl;
     }
-    qDebug() << "Closing" << endl;
-    db.close();
-    qDebug() << "Closed" << endl;
+    QSqlQuery query;
+    QSqlQueryModel* model = new QSqlQueryModel;
+    query.exec("SELECT * FROM positions");
+    model->setQuery(query);
 
-    QApplication a(argc, argv);
+
     MainWindow w;
     w.show();
+
+    QTableView* table = w.getTable();
+    table->setModel(model);
+
+    QMessageBox box;
+    box.setText("GTFO");
+    box.exec();
+
+    qDebug() << "Closing" << endl;
+    ddb.close();
+    qDebug() << "Closed" << endl;
+    delete model;
+    */
+
+    login_screen ls(db);
+    ls.show();
 
     return a.exec();
 }

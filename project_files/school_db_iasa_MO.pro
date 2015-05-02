@@ -8,6 +8,7 @@ QT += core gui
 QT += sql
 QT += core
 QT += opengl
+QT += widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,8 +17,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-    mainwindow.cpp
+    mainwindow.cpp \
+    login_screen.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    login_screen.h
 
 FORMS    += mainwindow.ui\
+    login_screen.ui

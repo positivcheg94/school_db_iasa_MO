@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -11,4 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+QTableView* MainWindow::getTable(){
+    return this->ui->query_table;
 }

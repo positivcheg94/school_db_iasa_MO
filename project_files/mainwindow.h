@@ -1,7 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "ui_mainwindow.h"
 #include <QMainWindow>
+#include <QSqlDatabase>
 
 namespace Ui {
 class MainWindow;
@@ -14,6 +16,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+    QTableView* getTable();
 
 private:
     Ui::MainWindow *ui;
