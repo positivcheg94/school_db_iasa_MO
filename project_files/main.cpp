@@ -1,4 +1,5 @@
 #include "windows_manager.h"
+#include "manager_windows/new_human_picker.h"
 
 #include <QObject>
 #include <QApplication>
