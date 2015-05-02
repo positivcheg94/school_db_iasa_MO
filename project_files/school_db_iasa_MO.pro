@@ -18,10 +18,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
     mainwindow.cpp \
-    login_screen.cpp
+    login_screen.cpp \
+    manager_menu.cpp
 
 HEADERS  += mainwindow.h \
-    login_screen.h
+    login_screen.h \
+    manager_menu.h
 
 FORMS    += mainwindow.ui\
-    login_screen.ui
+    login_screen.ui \
+    manager_menu.ui

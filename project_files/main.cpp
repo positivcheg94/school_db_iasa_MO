@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "login_screen.h"
 
+#include <QObject>
 #include <QApplication>
 #include <QDebug>
 #include <QMessageBox>
@@ -15,6 +16,34 @@ const QString HOST = "localhost";
 const int PORT = 5432;
 const QString DBNAME = "school";
 
+class window_manager : public QObject{
+
+    Q_OBJECT
+
+public:
+    window_manager(QSqlDatabase &database){
+        ls = new login_screen(database);
+
+    }
+
+    ~window_manager(){
+        delete ls;
+    }
+
+
+private:
+    login_screen* ls;
+
+
+
+
+signals:
+
+
+private slots:
+
+};
+
 
 int main(int argc, char *argv[])
 {
@@ -24,50 +53,6 @@ int main(int argc, char *argv[])
     db.setPort(5432);
     db.setDatabaseName(DBNAME);
     db.setConnectOptions("connect_timeout=2");
-
-    /*
-    QString host = QString("localhost");
-    QString dbname = QString("school");
-    QString user = QString("admin_ivanov");
-    QString pswd = QString("55555");
-
-    QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
-    db.setHostName(host);
-    db.setPort(5432);
-    db.setDatabaseName(dbname);
-    db.setUserName(user);
-    db.setPassword(pswd);
-    db.setConnectOptions("connect_timeout=2");
-    QSqlDatabase ddb = QSqlDatabase(db);
-    bool connectioncheck = ddb.open();
-
-    if (connectioncheck == true){
-        qDebug() << "Connection to database established." << endl;
-    }
-    else {
-        qDebug() << "Error for database " << db.databaseName() << " :" << db.lastError().text() << endl;
-    }
-    QSqlQuery query;
-    QSqlQueryModel* model = new QSqlQueryModel;
-    query.exec("SELECT * FROM positions");
-    model->setQuery(query);
-
-
-    MainWindow w;
-    w.show();
-
-    QTableView* table = w.getTable();
-    table->setModel(model);
-
-    QMessageBox box;
-    box.setText("GTFO");
-    box.exec();
-
-    qDebug() << "Closing" << endl;
-    ddb.close();
-    qDebug() << "Closed" << endl;
-    delete model;
-    */
 
     login_screen ls(db);
     ls.show();

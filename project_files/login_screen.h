@@ -2,11 +2,13 @@
 #define LOGIN_SCREEN_H
 
 #include <QKeyEvent>
-
 #include <QMainWindow>
-#include <QMessageBox>
 
 #include <QSqlDatabase>
+#include <QSqlQuery>
+
+#include <QMessageBox>
+#include <QDebug>
 
 namespace Ui {
 class login_screen;
@@ -25,6 +27,8 @@ protected:
 
 signals:
     void returnPressed();
+    void roleIsPicked(QString role);
+
 
 private slots:
     void on_log_in_button_clicked();
