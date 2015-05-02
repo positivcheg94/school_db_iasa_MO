@@ -38,7 +38,7 @@ void login_screen::on_log_in_button_clicked(){
         this->ui->username->clear();
         this->ui->password->clear();
         QMessageBox msg;
-        msg.setText("Cannot connect to database");
+        msg.setText("Cannot connect to database, check username or password");
         msg.exec();
     }
     QSqlQuery query;
@@ -46,4 +46,5 @@ void login_screen::on_log_in_button_clicked(){
     query.exec();
     query.next();
     QString role = query.value(0).toString();
+    emit loginSucceed(role);
 }

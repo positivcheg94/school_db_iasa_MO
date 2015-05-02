@@ -1,4 +1,4 @@
-#include "window_manager.h"
+#include "windows_manager.h"
 
 #include <QObject>
 #include <QApplication>
@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    window_manager wm;
+    windows_manager wm;
     wm.show_login();
 
     return a.exec();
