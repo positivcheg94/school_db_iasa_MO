@@ -30,7 +30,7 @@
      <string>Додати нову людину</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="show_humans">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -40,7 +40,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Показати людей</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_3">
@@ -76,7 +76,7 @@
      <x>0</x>
      <y>0</y>
      <width>266</width>
-     <height>25</height>
+     <height>38</height>
     </rect>
    </property>
   </widget>

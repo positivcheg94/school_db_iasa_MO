@@ -1,6 +1,6 @@
 #include "windows_manager.h"
 
-QString HOST = "localhost";
+QString HOST = "176.36.190.134";
 int PORT = 5432;
 QString DBNAME = "school";
 
@@ -14,20 +14,30 @@ windows_manager::windows_manager(QObject *parent) : QObject(parent)
     ls = new login_screen(db);
     connect(ls,SIGNAL(loginSucceed(QString)),this,SLOT(process_login(QString)));
 
+    //todo: depending on role, process_login should create menu from menus abstract factory
     man_menu = new manager_menu;
+    mainwin = new MainWindow;
 }
 
 windows_manager::~windows_manager(){
-    delete ls;
+    if(ls) delete ls;
+    if(man_menu) delete man_menu;
+    if(mainwin) delete mainwin;
 }
 
 void windows_manager::show_login(){
     ls->show();
 }
 
+void windows_manager::show_main_window(QSqlQueryModel* model){
+    mainwin->loadModel(model);
+    man_menu->hide();
+    mainwin->show();
+}
+
 void windows_manager::process_login(QString role){
     ls->hide();
-
+    qDebug() << role << endl;
     if (role == "student"){
         qDebug() << "role - student";
 
@@ -37,16 +47,16 @@ void windows_manager::process_login(QString role){
         man_menu->show();
 
     }
-    else if (role == "hr"){
+    else if (role == "teacher"){
         qDebug() << "role - teacher";
 
     }
-    else if (role == "hr"){
+    else if (role == "admin"){
         qDebug() << "role - admin";
 
     }
     else{
-        qDebug() << "role - postgre? or error";
+        qDebug() << "role - postgre or error";
 
     }
 

@@ -5,6 +5,9 @@
 
 #include "manager_menu.h"
 
+
+#include "mainwindow.h"
+
 #include <QObject>
 
 #include <QSqlDatabase>
@@ -26,7 +29,7 @@ public:
     ~windows_manager();
 
     void show_login();
-
+    void show_main_window(QSqlQueryModel* model);
 signals:
 
 private slots:
@@ -36,6 +39,7 @@ private:
     QSqlDatabase db;
     login_screen* ls;
     manager_menu* man_menu;
+    MainWindow* mainwin;
 };
 
 #endif // WINDOWS_MANAGER_H

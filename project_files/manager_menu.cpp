@@ -29,3 +29,9 @@ void manager_menu::on_add_new_human_clicked()
     this->hide();
     this->n_human_picker->show();
 }
+
+void manager_menu::on_show_humans_clicked()
+{
+    this->hide();
+    this->n_human_picker->show();
+}

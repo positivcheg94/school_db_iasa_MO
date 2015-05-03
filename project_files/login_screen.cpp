@@ -30,15 +30,17 @@ bool login_screen::eventFilter(QObject *obj, QEvent *event) {
 }
 
 void login_screen::on_log_in_button_clicked(){
-    QString username = this->ui->username->text();
+    QString username = this->ui->username->text().trimmed();
     QString password = this->ui->password->text();
     db.setUserName(username);
     db.setPassword(password);
     if(!db.open()){
+        QSqlError dberr=db.lastError();
+        qDebug() << dberr.text();
         this->ui->username->clear();
         this->ui->password->clear();
         QMessageBox msg;
-        msg.setText("Cannot connect to database, check username or password");
+        msg.setText("Cannot connect to database, check username or password\n\nError message"+dberr.text());
         msg.exec();
         return;
     }

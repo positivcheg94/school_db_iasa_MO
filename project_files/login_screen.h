@@ -6,7 +6,7 @@
 
 #include <QSqlDatabase>
 #include <QSqlQuery>
-
+#include <QSqlError>
 #include <QMessageBox>
 #include <QDebug>
 

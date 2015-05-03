@@ -41,7 +41,7 @@ void new_human_picker::on_submit_button_clicked()
         query.addBindValue(code);
         query.exec();
         qDebug()<<query.lastQuery();
-        qDebug()<<query.lastError();
+        if (query.lastError().type()!=QSqlError::NoError) qDebug()<<query.lastError().text();
     }
     this->hide();
     this->ui->name->clear();

@@ -23,6 +23,8 @@ private slots:
     void restore_manager_menu();
     void on_add_new_human_clicked();
 
+    void on_show_humans_clicked();
+
 private:
     Ui::manager_menu *ui;
     new_human_picker* n_human_picker;

@@ -15,3 +15,8 @@ MainWindow::~MainWindow()
 QTableView* MainWindow::getTable(){
     return this->ui->query_table;
 }
+
+void MainWindow::loadModel(QSqlQueryModel* model) {
+    if(model)
+    getTable()->setModel(model);
+}
