@@ -29,11 +29,13 @@ public:
     ~windows_manager();
 
     void show_login();
-    void show_main_window(QSqlQueryModel* model);
+
 signals:
 
 private slots:
     void process_login(QString role);
+    void show_main_window(QString table);
+    void hide_main_window();
 
 private:
     QSqlDatabase db;

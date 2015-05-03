@@ -16,6 +16,9 @@ windows_manager::windows_manager(QObject *parent) : QObject(parent)
 
     //todo: depending on role, process_login should create menu from menus abstract factory
     man_menu = new manager_menu;
+
+    connect(man_menu,SIGNAL(open_main_window(QString)),this,SLOT(show_main_window(QString)));
+
     mainwin = new MainWindow;
 }
 
@@ -29,10 +32,15 @@ void windows_manager::show_login(){
     ls->show();
 }
 
-void windows_manager::show_main_window(QSqlQueryModel* model){
-    mainwin->loadModel(model);
+void windows_manager::show_main_window(QString table){
+    mainwin->loadModel(table);
     man_menu->hide();
     mainwin->show();
+}
+
+void windows_manager::hide_main_window(){
+    mainwin->hide();
+    man_menu->show();
 }
 
 void windows_manager::process_login(QString role){

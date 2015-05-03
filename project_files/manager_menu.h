@@ -6,7 +6,7 @@
 #include <QMainWindow>
 #include <QSqlDatabase>
 #include <QSqlQuery>
-#include <QSqlQueryModel>
+
 namespace Ui {
 class manager_menu;
 }
@@ -18,6 +18,9 @@ class manager_menu : public QMainWindow
 public:
     explicit manager_menu(QWidget *parent = 0);
     ~manager_menu();
+
+signals:
+    void open_main_window(QString table);
 
 private slots:
     void restore_manager_menu();
