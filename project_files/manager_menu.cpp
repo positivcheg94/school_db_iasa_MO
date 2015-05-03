@@ -32,6 +32,10 @@ void manager_menu::on_add_new_human_clicked()
 
 void manager_menu::on_show_humans_clicked()
 {
+    QSqlQuery query("SELECT * FROM people_workers");
+    QSqlQueryModel* model = new QSqlQueryModel;
+    model->setQuery(query);
+
+
     this->hide();
-    this->n_human_picker->show();
 }

@@ -4,9 +4,9 @@
 #include "manager_windows/new_human_picker.h"
 
 #include <QMainWindow>
-
 #include <QSqlDatabase>
-
+#include <QSqlQuery>
+#include <QSqlQueryModel>
 namespace Ui {
 class manager_menu;
 }
