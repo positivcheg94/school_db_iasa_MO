@@ -20,6 +20,9 @@ windows_manager::windows_manager(QObject *parent) : QObject(parent)
     connect(man_menu,SIGNAL(open_main_window(QString)),this,SLOT(show_main_window(QString)));
 
     mainwin = new MainWindow;
+
+    connect(mainwin,SIGNAL(close_main_window()),this,SLOT(hide_main_window()));
+
 }
 
 windows_manager::~windows_manager(){

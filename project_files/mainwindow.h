@@ -28,7 +28,7 @@ public:
     void closeEvent (QCloseEvent *event);
 
 signals:
-    void hide_main_window();
+    void close_main_window();
 private:
     Ui::MainWindow *ui;
 

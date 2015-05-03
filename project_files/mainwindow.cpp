@@ -30,5 +30,5 @@ void MainWindow::loadModel(QString table) {
 void MainWindow::closeEvent (QCloseEvent *event) {
     event->ignore();
     getTable()->model()->deleteLater();
-    emit hide_main_window();
+    emit close_main_window();
 }
