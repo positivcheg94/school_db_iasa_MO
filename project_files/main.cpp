@@ -11,14 +11,12 @@
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 
-#include "singleton.h"
-
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    windows_manager* wm = &Singleton<windows_manager>::Instance();
-    wm->show_login();
+    windows_manager wm;
+    wm.show_login();
 
     return a.exec();
 }

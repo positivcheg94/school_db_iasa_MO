@@ -31,8 +31,7 @@ HEADERS =\
     login_screen.h \
     manager_menu.h \
     windows_manager.h \
-    manager_windows/new_human_picker.h \
-    singleton.h
+    manager_windows/new_human_picker.h
 
 
 FORMS = mainwindow.ui\
