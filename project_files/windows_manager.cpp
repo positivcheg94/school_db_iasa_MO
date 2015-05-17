@@ -6,9 +6,20 @@ QString DBNAME = "school";
 
 windows_manager::windows_manager(QObject *parent) : QObject(parent)
 {
+    std::fstream config("config.cfg",std::ios_base::in);
+    if(config.is_open()){
+        std::string host;
+        int port;
+        std::string dbname;
+        config >> host >> port >> dbname;
+        config.close();
+        HOST = QString(host.c_str());
+        PORT = port;
+        DBNAME = QString(dbname.c_str());
+    }
     db=QSqlDatabase::addDatabase("QPSQL");
     db.setHostName(HOST);
-    db.setPort(5432);
+    db.setPort(PORT);
     db.setDatabaseName(DBNAME);
     db.setConnectOptions("connect_timeout=2");
     ls = new login_screen(db);
