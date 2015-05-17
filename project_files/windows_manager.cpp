@@ -1,6 +1,6 @@
 #include "windows_manager.h"
 
-QString HOST = "127.0.0.1";
+QString HOST = "176.36.190.134";
 int PORT = 5432;
 QString DBNAME = "school";
 
