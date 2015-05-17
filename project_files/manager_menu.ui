@@ -17,7 +17,7 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="add_new_human">
+   <widget class="QPushButton" name="add_new_human_button">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -30,7 +30,7 @@
      <string>Додати нову людину</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="show_humans">
+   <widget class="QPushButton" name="show_humans_button">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -43,7 +43,7 @@
      <string>Показати людей</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="add_new_job_button">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -53,10 +53,10 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Додати нову посаду</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="change_job_button">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -66,7 +66,20 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Змінити посаду</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="assign_human_job">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>180</y>
+      <width>221</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Призначити людину на посаду</string>
     </property>
    </widget>
   </widget>
@@ -76,7 +89,7 @@
      <x>0</x>
      <y>0</y>
      <width>266</width>
-     <height>38</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

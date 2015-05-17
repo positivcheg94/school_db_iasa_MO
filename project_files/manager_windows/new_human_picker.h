@@ -2,6 +2,7 @@
 #define NEW_HUMAN_PICKER_H
 
 #include <QWidget>
+#include <QCloseEvent>
 
 #include <QSqlQuery>
 
@@ -21,6 +22,8 @@ class new_human_picker : public QWidget
 public:
     explicit new_human_picker(QWidget *parent = 0);
     ~new_human_picker();
+
+    void closeEvent (QCloseEvent *event);
 
 signals:
     void restore_main_menu();

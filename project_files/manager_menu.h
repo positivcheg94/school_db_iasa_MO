@@ -22,9 +22,10 @@ public:
 
 private slots:
     virtual void restore_menu();
-    void on_add_new_human_clicked();
 
-    void on_show_humans_clicked();
+    //buttons
+    void on_add_new_human_button_clicked();
+    void on_show_humans_button_clicked();
 
 private:
     Ui::manager_menu *ui;

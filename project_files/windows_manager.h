@@ -1,6 +1,9 @@
 #ifndef WINDOWS_MANAGER_H
 #define WINDOWS_MANAGER_H
 
+//read config
+#include <fstream>
+
 #include "login_screen.h"
 
 #include "manager_menu.h"
