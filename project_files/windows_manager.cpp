@@ -14,11 +14,6 @@ windows_manager::windows_manager(QObject *parent) : QObject(parent)
     ls = new login_screen(db);
     connect(ls,SIGNAL(loginSucceed(QString)),this,SLOT(process_login(QString)));
 
-    //todo: depending on role, process_login should create menu from menus abstract factory
-    man_menu = new manager_menu;
-
-    connect(man_menu,SIGNAL(open_main_window(QSqlQueryModel*)),this,SLOT(show_main_window(QSqlQueryModel*)));
-
     mainwin = new MainWindow;
 
     connect(mainwin,SIGNAL(close_main_window()),this,SLOT(hide_main_window()));
@@ -27,7 +22,7 @@ windows_manager::windows_manager(QObject *parent) : QObject(parent)
 
 windows_manager::~windows_manager(){
     if(ls) delete ls;
-    if(man_menu) delete man_menu;
+    if(menu) delete menu;
     if(mainwin) delete mainwin;
 }
 
@@ -37,23 +32,26 @@ void windows_manager::show_login(){
 
 void windows_manager::show_main_window(QSqlQueryModel* model){
     mainwin->loadModel(model);
-    man_menu->hide();
+    menu->hide();
     mainwin->show();
 }
 
 void windows_manager::hide_main_window(){
     mainwin->hide();
-    man_menu->show();
+    menu->show();
 }
 
 void windows_manager::process_login(QString role){
     ls->hide();
     qDebug() << "role - " << role << endl;
     if (role == "student"){
+        menu = new student_menu;
 
     }
     else if (role == "manager"){
-        man_menu->show();
+        //todo: depending on role, process_login should create menu from menus abstract factory
+        menu = new manager_menu;
+
 
     }
     else if (role == "teacher"){
@@ -65,7 +63,8 @@ void windows_manager::process_login(QString role){
     else{
 
     }
-
+    if(menu) connect(menu,SIGNAL(open_main_window(QSqlQueryModel*)),this,SLOT(show_main_window(QSqlQueryModel*)));
+    menu->show();
     QMessageBox msg;
     msg.setText("login ok");
     msg.exec();

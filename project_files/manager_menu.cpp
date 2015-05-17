@@ -2,14 +2,14 @@
 #include "ui_manager_menu.h"
 
 manager_menu::manager_menu(QWidget *parent) :
-    QMainWindow(parent),
+    menu_base(parent),
     ui(new Ui::manager_menu)
 {
     ui->setupUi(this);
     n_human_picker = new new_human_picker();
 
     //connects
-    connect(n_human_picker,SIGNAL(restore_main_menu()),this,SLOT(restore_manager_menu()));
+    connect(n_human_picker,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
 }
 
 manager_menu::~manager_menu()
@@ -19,7 +19,7 @@ manager_menu::~manager_menu()
 
 
 //slots
-void manager_menu::restore_manager_menu()
+void manager_menu::restore_menu()
 {
     this->show();
 }
@@ -39,5 +39,4 @@ void manager_menu::on_show_humans_clicked()
     model->setQuery(query);
     emit open_main_window(model);
     this->hide();
-
 }

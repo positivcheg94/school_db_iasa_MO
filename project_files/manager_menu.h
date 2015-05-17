@@ -3,7 +3,7 @@
 
 #include "manager_windows/new_human_picker.h"
 
-#include <QMainWindow>
+#include "menu_base.h" //which is actually QMainWindow
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
@@ -12,19 +12,16 @@ namespace Ui {
 class manager_menu;
 }
 
-class manager_menu : public QMainWindow
+class manager_menu : public menu_base
 {
     Q_OBJECT
 
 public:
     explicit manager_menu(QWidget *parent = 0);
-    ~manager_menu();
-
-signals:
-    void open_main_window(QSqlQueryModel* model);
+    virtual ~manager_menu();
 
 private slots:
-    void restore_manager_menu();
+    virtual void restore_menu();
     void on_add_new_human_clicked();
 
     void on_show_humans_clicked();

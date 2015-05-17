@@ -4,7 +4,7 @@
 #include "login_screen.h"
 
 #include "manager_menu.h"
-
+#include "student_menu.h"
 
 #include "mainwindow.h"
 
@@ -40,7 +40,7 @@ private slots:
 private:
     QSqlDatabase db;
     login_screen* ls;
-    manager_menu* man_menu;
+    menu_base* menu;
     MainWindow* mainwin;
 };
 
