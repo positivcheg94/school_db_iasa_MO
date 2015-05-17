@@ -48,21 +48,26 @@ void windows_manager::hide_main_window(){
 
 void windows_manager::process_login(QString role){
     ls->hide();
-    qDebug() << "role - " << role << endl;
+    qDebug() << role << endl;
     if (role == "student"){
+        qDebug() << "role - student";
 
     }
-    else if (role == "manager"){
+    else if (role == "hr"){
+        qDebug() << "role - hr";
         man_menu->show();
 
     }
     else if (role == "teacher"){
+        qDebug() << "role - teacher";
 
     }
     else if (role == "admin"){
+        qDebug() << "role - admin";
 
     }
     else{
+        qDebug() << "role - postgre or error";
 
     }
 
