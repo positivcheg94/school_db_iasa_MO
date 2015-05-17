@@ -1,6 +1,6 @@
 #include "windows_manager.h"
 
-QString HOST = "127.0.0.1";
+QString HOST = "176.36.190.134";
 int PORT = 5432;
 QString DBNAME = "school";
 
@@ -48,26 +48,21 @@ void windows_manager::hide_main_window(){
 
 void windows_manager::process_login(QString role){
     ls->hide();
-    qDebug() << role << endl;
+    qDebug() << "role - " << role << endl;
     if (role == "student"){
-        qDebug() << "role - student";
 
     }
     else if (role == "hr"){
-        qDebug() << "role - hr";
         man_menu->show();
 
     }
     else if (role == "teacher"){
-        qDebug() << "role - teacher";
 
     }
     else if (role == "admin"){
-        qDebug() << "role - admin";
 
     }
     else{
-        qDebug() << "role - postgre or error";
 
     }
 
