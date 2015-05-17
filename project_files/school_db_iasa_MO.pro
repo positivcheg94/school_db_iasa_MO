@@ -21,7 +21,8 @@ SOURCES =\
     mainwindow.cpp \
     main.cpp\
     windows_manager.cpp \
-    manager_windows/new_human_picker.cpp
+    manager_windows/new_human_picker.cpp \
+    student_menu.cpp
 
 
 
@@ -31,10 +32,12 @@ HEADERS =\
     login_screen.h \
     manager_menu.h \
     windows_manager.h \
-    manager_windows/new_human_picker.h
+    manager_windows/new_human_picker.h \
+    student_menu.h
 
 
 FORMS = mainwindow.ui\
     login_screen.ui \
     manager_menu.ui \
-    manager_windows/new_human_picker.ui
+    manager_windows/new_human_picker.ui \
+    student_menu.ui

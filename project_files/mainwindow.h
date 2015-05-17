@@ -22,7 +22,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    void loadModel(QString table);
+    void loadModel(QSqlQueryModel* model);
     QTableView* getTable();
 
     void closeEvent (QCloseEvent *event);
