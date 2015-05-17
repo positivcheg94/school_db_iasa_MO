@@ -13,6 +13,12 @@ new_human_picker::~new_human_picker()
     delete ui;
 }
 
+void new_human_picker::closeEvent(QCloseEvent *event) {
+    event->ignore();
+    emit restore_main_menu();
+    this->hide();
+}
+
 void new_human_picker::on_submit_button_clicked()
 {
     QSqlQuery query;
