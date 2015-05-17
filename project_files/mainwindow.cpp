@@ -16,12 +16,8 @@ QTableView* MainWindow::getTable(){
     return this->ui->query_table;
 }
 
-void MainWindow::loadModel(QString table) {
-    QString qtext("SELECT * FROM "+table);
-    QSqlQuery query(qtext);
-    qDebug() << query.lastError().text();
-    QSqlQueryModel* model = new QSqlQueryModel();
-    model->setQuery(query);
+void MainWindow::loadModel(QSqlQueryModel* model) {
+
     qDebug() << model->lastError().text();
     getTable()->setModel(model);
 

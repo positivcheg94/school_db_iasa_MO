@@ -1,6 +1,6 @@
 #include "windows_manager.h"
 
-QString HOST = "127.0.0.1";
+QString HOST = "176.36.190.134";
 int PORT = 5432;
 QString DBNAME = "school";
 
@@ -17,7 +17,7 @@ windows_manager::windows_manager(QObject *parent) : QObject(parent)
     //todo: depending on role, process_login should create menu from menus abstract factory
     man_menu = new manager_menu;
 
-    connect(man_menu,SIGNAL(open_main_window(QString)),this,SLOT(show_main_window(QString)));
+    connect(man_menu,SIGNAL(open_main_window(QSqlQueryModel*)),this,SLOT(show_main_window(QSqlQueryModel*)));
 
     mainwin = new MainWindow;
 
@@ -35,8 +35,8 @@ void windows_manager::show_login(){
     ls->show();
 }
 
-void windows_manager::show_main_window(QString table){
-    mainwin->loadModel(table);
+void windows_manager::show_main_window(QSqlQueryModel* model){
+    mainwin->loadModel(model);
     man_menu->hide();
     mainwin->show();
 }

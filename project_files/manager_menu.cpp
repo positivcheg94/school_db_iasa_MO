@@ -24,15 +24,20 @@ void manager_menu::restore_manager_menu()
     this->show();
 }
 
-void manager_menu::on_add_new_human_clicked()
+void manager_menu::on_add_new_human_button_clicked()
 {
     this->hide();
     this->n_human_picker->show();
 }
 
-void manager_menu::on_show_humans_clicked()
+void manager_menu::on_show_humans_button_clicked()
 {
-    emit open_main_window("people_workers");
+    QString qtext("SELECT * FROM people_workers");
+    QSqlQuery query(qtext);
+    qDebug() << query.lastError().text();
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery(query);
+    emit open_main_window(model);
     this->hide();
 
 }

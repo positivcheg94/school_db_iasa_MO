@@ -34,7 +34,7 @@ signals:
 
 private slots:
     void process_login(QString role);
-    void show_main_window(QString table);
+    void show_main_window(QSqlQueryModel* model);
     void hide_main_window();
 
 private:

@@ -6,6 +6,7 @@
 #include <QMainWindow>
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include <QSqlQueryModel>
 
 namespace Ui {
 class manager_menu;
@@ -20,13 +21,14 @@ public:
     ~manager_menu();
 
 signals:
-    void open_main_window(QString table);
+    void open_main_window(QSqlQueryModel* model);
 
 private slots:
     void restore_manager_menu();
-    void on_add_new_human_clicked();
 
-    void on_show_humans_clicked();
+    //buttons
+    void on_add_new_human_button_clicked();
+    void on_show_humans_button_clicked();
 
 private:
     Ui::manager_menu *ui;
