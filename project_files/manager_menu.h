@@ -2,6 +2,7 @@
 #define MANAGER_MENU_H
 
 #include "manager_windows/new_human_picker.h"
+#include "manager_windows/add_new_subject.h"
 
 #include "menu_base.h" //which is actually QMainWindow
 #include <QSqlDatabase>
@@ -27,9 +28,12 @@ private slots:
     void on_add_new_human_button_clicked();
     void on_show_humans_button_clicked();
 
+    void on_add_new_subject_button_clicked();
+
 private:
     Ui::manager_menu *ui;
     new_human_picker* n_human_picker;
+    add_new_subject* a_new_subjects;
 };
 
 #endif // MANAGER_MENU_H

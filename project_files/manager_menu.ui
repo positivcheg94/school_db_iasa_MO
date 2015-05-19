@@ -17,70 +17,59 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="add_new_human_button">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>20</y>
-      <width>200</width>
-      <height>40</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Додати нову людину</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="show_humans_button">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>60</y>
-      <width>200</width>
-      <height>40</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Показати людей</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="add_new_job_button">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>100</y>
-      <width>200</width>
-      <height>40</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Додати нову посаду</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="change_job_button">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>140</y>
-      <width>200</width>
-      <height>40</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Змінити посаду</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="assign_human_job">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
       <x>19</x>
-      <y>180</y>
-      <width>221</width>
-      <height>40</height>
+      <y>20</y>
+      <width>238</width>
+      <height>194</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Призначити людину на посаду</string>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="add_new_human_button">
+       <property name="text">
+        <string>Додати нову людину</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="show_humans_button">
+       <property name="text">
+        <string>Показати людей</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="add_new_job_button">
+       <property name="text">
+        <string>Додати нову посаду</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="change_job_button">
+       <property name="text">
+        <string>Змінити посаду</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="assign_human_job_button">
+       <property name="text">
+        <string>Призначити людину на посаду</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="add_new_subject_button">
+       <property name="text">
+        <string>Додати новий предмет</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

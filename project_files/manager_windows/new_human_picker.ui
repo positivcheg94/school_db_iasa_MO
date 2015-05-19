@@ -228,8 +228,11 @@
       </item>
       <item>
        <widget class="QLineEdit" name="code">
+        <property name="inputMask">
+         <string>&quot;9&quot;</string>
+        </property>
         <property name="maxLength">
-         <number>10</number>
+         <number>3</number>
         </property>
        </widget>
       </item>

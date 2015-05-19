@@ -22,34 +22,34 @@ void new_human_picker::closeEvent(QCloseEvent *event) {
 void new_human_picker::on_submit_button_clicked()
 {
     QSqlQuery query;
-        QString name = this->ui->name->text();
-        QString surname = this->ui->surname->text();
-        QString patronymic = this->ui->patronymic->text();
-        QString phone = this->ui->phone->text();
-        QString passport = this->ui->passport->text();
-        QString code = this->ui->code->text();
+    QString name = this->ui->name->text();
+    QString surname = this->ui->surname->text();
+    QString patronymic = this->ui->patronymic->text();
+    QString phone = this->ui->phone->text();
+    QString passport = this->ui->passport->text();
+    QString code = this->ui->code->text();
 
-        query.prepare("insert into people_workers(first_name,last_name,patronymic,tel_num,passport,code) values(?,?,?,?,?,?)");
-        query.addBindValue(name);
-        query.addBindValue(surname);
-        query.addBindValue(patronymic);
-        query.addBindValue(phone);
-        query.addBindValue(passport);
-        query.addBindValue(code);
-        query.exec();
-        if (query.lastError().type()!=QSqlError::NoError){
-            QMessageBox msg;
-            msg.setText(query.lastError().text());
-            msg.exec();
-            return;
-        }
+    query.prepare("insert into people_workers(first_name,last_name,patronymic,tel_num,passport,code) values(?,?,?,?,?,?)");
+    query.addBindValue(name);
+    query.addBindValue(surname);
+    query.addBindValue(patronymic);
+    query.addBindValue(phone);
+    query.addBindValue(passport);
+    query.addBindValue(code);
+    query.exec();
+    if (query.lastError().type()!=QSqlError::NoError){
+        QMessageBox msg;
+        msg.setText(query.lastError().text());
+        msg.exec();
+        return;
+    }
 
-        emit restore_main_menu();
-        this->hide();
-        this->ui->name->clear();
-        this->ui->surname->clear();
-        this->ui->patronymic->clear();
-        this->ui->phone->clear();
-        this->ui->passport->clear();
-        this->ui->code->clear();
+    emit restore_main_menu();
+    this->hide();
+    this->ui->name->clear();
+    this->ui->surname->clear();
+    this->ui->patronymic->clear();
+    this->ui->phone->clear();
+    this->ui->passport->clear();
+    this->ui->code->clear();
 }
