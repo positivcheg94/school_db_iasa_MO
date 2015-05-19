@@ -41,9 +41,16 @@ private slots:
     void hide_main_window();
 
 private:
+    //database
     QSqlDatabase db;
+
+    //login screen
     login_screen* ls;
+
+    //menus
     menu_base* menu;
+
+    //sql_query_viewers
     MainWindow* mainwin;
 };
 
