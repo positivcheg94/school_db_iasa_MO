@@ -33,7 +33,7 @@ private slots:
 private:
     Ui::manager_menu *ui;
     new_human_picker* n_human_picker;
-    add_new_subject* a_new_subjects;
+    add_new_subject* a_new_subject;
 };
 
 #endif // MANAGER_MENU_H
