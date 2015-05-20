@@ -21,7 +21,7 @@ void student_menu::restore_menu()
 
 void student_menu::on_see_rozklad_clicked()
 {
-    QString qtext("SELECT DISTINCT ON (Клас,day_of_week, lesson_number) class_num(creation_date)||letter as Класс, day_of_week as День, lesson_number as №, subject_name as Предмет, "
+    QString qtext("SELECT DISTINCT ON (Клас,day_of_week, lesson_number) class_num(creation_date)||letter as Клас, day_of_week as День, lesson_number as №, subject_name as Предмет, "
                   "CASE WHEN EXISTS "
                           "(SELECT * from changes ch NATURAL JOIN temporary_not_working nw WHERE ch.id_schedule = sc.id_rozkl AND nw.start_date > current_date AND (nw.end_date IS NULL OR nw.end_date >current_date) ) "
                       "THEN "
@@ -34,7 +34,7 @@ void student_menu::on_see_rozklad_clicked()
                   "NATURAL JOIN positions "
                   "NATURAL JOIN subjects "
                   "NATURAL JOIN people_workers "
-                  "ORDER BY Класс ASC, day_of_week ASC, lesson_number ASC, addition_date DESC;");
+                  "ORDER BY Клас ASC, day_of_week ASC, lesson_number ASC, addition_date DESC;");
     QSqlQuery query(qtext);
     qDebug() << query.lastError().text();
     QSqlQueryModel* model = new QSqlQueryModel();
