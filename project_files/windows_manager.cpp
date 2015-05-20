@@ -77,7 +77,7 @@ void windows_manager::process_login(QString role){
     if(menu) connect(menu,SIGNAL(open_main_window(QSqlQueryModel*)),this,SLOT(show_main_window(QSqlQueryModel*)));
     menu->show();
     QMessageBox msg;
-    msg.setText("login ok");
+    msg.setText(QString("Connected to %1:%2 as %3 successfully").arg(HOST, QString::number(PORT), role));
     msg.exec();
 }
 

@@ -201,6 +201,9 @@
       </item>
       <item>
        <widget class="QLineEdit" name="passport">
+        <property name="inputMask">
+         <string>XX999999</string>
+        </property>
         <property name="maxLength">
          <number>8</number>
         </property>
@@ -229,10 +232,10 @@
       <item>
        <widget class="QLineEdit" name="code">
         <property name="inputMask">
-         <string>&quot;9&quot;</string>
+         <string>9999999999</string>
         </property>
         <property name="maxLength">
-         <number>3</number>
+         <number>10</number>
         </property>
        </widget>
       </item>
