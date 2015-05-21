@@ -6,47 +6,37 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>222</width>
-    <height>168</height>
+    <width>195</width>
+    <height>213</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Меню учня</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="see_rozklad">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>201</width>
-      <height>40</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Розклад</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="show_marks">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>200</width>
-      <height>40</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Оцінки</string>
-    </property>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="see_rozklad">
+      <property name="text">
+       <string>Розклад</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="show_marks">
+      <property name="text">
+       <string>Оцінки</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>222</width>
+     <width>195</width>
      <height>38</height>
     </rect>
    </property>

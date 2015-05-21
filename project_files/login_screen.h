@@ -27,7 +27,7 @@ protected:
 
 signals:
     void returnPressed();
-    void loginSucceed(QString role);
+    void loginSucceed(QString role, QString username);
 
 
 private slots:

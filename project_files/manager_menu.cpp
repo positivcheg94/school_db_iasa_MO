@@ -1,7 +1,7 @@
 #include "manager_menu.h"
 #include "ui_manager_menu.h"
 
-manager_menu::manager_menu(QWidget *parent) :
+manager_menu::manager_menu(QWidget *parent, QString db_login) :
     menu_base(parent),
     ui(new Ui::manager_menu)
 {
@@ -12,6 +12,37 @@ manager_menu::manager_menu(QWidget *parent) :
     //connects
     connect(n_human_picker,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
     connect(a_new_subject,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
+
+    //Get the staff id
+
+    if(db_login.length()) {
+        QString qtext("SELECT sl.id_personnel, fio(last_name, first_name, patronymic) AS fio "
+                      "FROM staff_logins sl "
+                      "LEFT JOIN personnel p ON sl.id_personnel=p.id_personnel "
+                      "LEFT JOIN people_workers w on w.id_human=p.id_human "
+                      "WHERE sl.db_login =?;");
+
+        QSqlQuery query;
+        query.prepare(qtext);
+        query.addBindValue(db_login);
+        query.exec();
+        if (query.lastError().type()!=QSqlError::NoError){
+            QMessageBox msg;
+            qDebug() << query.lastError().text();
+            msg.setText(query.lastError().text());
+            msg.exec();
+            return;
+        }
+        if(query.next()) {
+            staff_id = query.value(0).toInt();
+            QString fio = query.value(1).toString();
+            this->setWindowTitle(fio);
+        }
+        query.finish();
+    }
+    else {
+        staff_id=0;
+    }
 }
 
 manager_menu::~manager_menu()

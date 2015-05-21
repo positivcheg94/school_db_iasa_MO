@@ -50,5 +50,5 @@ void login_screen::on_log_in_button_clicked(){
     query.next();
     QString role = query.value(0).toString();
     this->hide();
-    emit loginSucceed(role);
+    emit loginSucceed(role, username);
 }

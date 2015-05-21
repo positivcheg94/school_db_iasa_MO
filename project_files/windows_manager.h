@@ -36,14 +36,13 @@ public:
 signals:
 
 private slots:
-    void process_login(QString role);
+    void process_login(QString role, QString username);
     void show_main_window(QSqlQueryModel* model);
     void hide_main_window();
-
 private:
     //database
     QSqlDatabase db;
-
+    QString db_login;
     //login screen
     login_screen* ls;
 

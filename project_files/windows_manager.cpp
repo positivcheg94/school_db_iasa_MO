@@ -17,13 +17,15 @@ windows_manager::windows_manager(QObject *parent) : QObject(parent)
         PORT = port;
         DBNAME = QString(dbname.c_str());
     }
+    db_login=QString("");
     db=QSqlDatabase::addDatabase("QPSQL");
     db.setHostName(HOST);
     db.setPort(PORT);
     db.setDatabaseName(DBNAME);
     db.setConnectOptions("connect_timeout=2");
+    db_login=QString("");
     ls = new login_screen(db);
-    connect(ls,SIGNAL(loginSucceed(QString)),this,SLOT(process_login(QString)));
+    connect(ls,SIGNAL(loginSucceed(QString,QString)),this,SLOT(process_login(QString,QString)));
 
     mainwin = new MainWindow;
 
@@ -52,18 +54,15 @@ void windows_manager::hide_main_window(){
     menu->show();
 }
 
-void windows_manager::process_login(QString role){
+void windows_manager::process_login(QString role, QString username){
     ls->hide();
     qDebug() << "role - " << role << endl;
     if (role == "student"){
-        menu = new student_menu;
+        menu = new student_menu(0,username);
 
     }
     else if (role == "manager"){
-        //todo: depending on role, process_login should create menu from menus abstract factory
-        menu = new manager_menu;
-
-
+        menu = new manager_menu(0,username);
     }
     else if (role == "teacher"){
 
@@ -80,5 +79,3 @@ void windows_manager::process_login(QString role){
     msg.setText(QString("Connected to %1:%2 as %3 successfully").arg(HOST, QString::number(PORT), role));
     msg.exec();
 }
-
-

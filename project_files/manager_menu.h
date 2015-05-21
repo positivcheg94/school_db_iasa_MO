@@ -8,6 +8,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
+#include <QDebug>
 
 namespace Ui {
 class manager_menu;
@@ -18,7 +19,7 @@ class manager_menu : public menu_base
     Q_OBJECT
 
 public:
-    explicit manager_menu(QWidget *parent = 0);
+    explicit manager_menu(QWidget *parent = 0, QString db_login="");
     virtual ~manager_menu();
 
 private slots:
@@ -34,6 +35,7 @@ private:
     Ui::manager_menu *ui;
     new_human_picker* n_human_picker;
     add_new_subject* a_new_subject;
+    int staff_id;
 };
 
 #endif // MANAGER_MENU_H
