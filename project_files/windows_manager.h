@@ -47,7 +47,7 @@ private:
     //login screen
     login_screen* ls;
 
-    //menus
+    //menu hanle
     menu_base* menu;
 
     //sql_query_viewers

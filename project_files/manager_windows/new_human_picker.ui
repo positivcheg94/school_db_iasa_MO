@@ -93,6 +93,9 @@
       </item>
       <item>
        <widget class="QLineEdit" name="name">
+        <property name="text">
+         <string/>
+        </property>
         <property name="maxLength">
          <number>20</number>
         </property>
@@ -202,10 +205,19 @@
       <item>
        <widget class="QLineEdit" name="passport">
         <property name="inputMask">
-         <string>XX999999</string>
+         <string/>
+        </property>
+        <property name="text">
+         <string/>
         </property>
         <property name="maxLength">
          <number>8</number>
+        </property>
+        <property name="frame">
+         <bool>true</bool>
+        </property>
+        <property name="cursorPosition">
+         <number>0</number>
         </property>
        </widget>
       </item>
@@ -232,7 +244,7 @@
       <item>
        <widget class="QLineEdit" name="code">
         <property name="inputMask">
-         <string>9999999999</string>
+         <string/>
         </property>
         <property name="maxLength">
          <number>10</number>

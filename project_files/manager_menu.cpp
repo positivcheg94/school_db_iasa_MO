@@ -8,16 +8,21 @@ manager_menu::manager_menu(QWidget *parent) :
     ui->setupUi(this);
     n_human_picker = new new_human_picker();
     a_new_subject = new add_new_subject();
+    a_new_job = new add_new_job();
 
     //connects
     connect(n_human_picker,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
     connect(a_new_subject,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
+    connect(a_new_job,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
+
+    connect(this,SIGNAL(show_add_job_dialog(QSqlQueryModel*)),a_new_job,SLOT(show_add_new_job_dialog(QSqlQueryModel*)));
 }
 
 manager_menu::~manager_menu()
 {
     delete n_human_picker;
     delete a_new_subject;
+    delete a_new_job;
 
     delete ui;
 }
@@ -47,10 +52,18 @@ void manager_menu::on_add_new_human_button_clicked()
 
 }
 
-
-
 void manager_menu::on_add_new_subject_button_clicked()
 {
     this->a_new_subject->show();
+    this->hide();
+}
+
+void manager_menu::on_add_new_job_button_clicked()
+{
+    QSqlQuery query("select subject_name,id_subj from subjects");
+    qDebug() << query.lastError().text();
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery(query);
+    emit show_add_job_dialog(model);
     this->hide();
 }

@@ -74,6 +74,7 @@ void windows_manager::process_login(QString role){
     else{
 
     }
+
     if(menu) connect(menu,SIGNAL(open_main_window(QSqlQueryModel*)),this,SLOT(show_main_window(QSqlQueryModel*)));
     menu->show();
     QMessageBox msg;
