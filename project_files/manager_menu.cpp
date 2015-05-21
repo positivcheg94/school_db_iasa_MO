@@ -33,7 +33,6 @@ void manager_menu::on_show_humans_button_clicked()
 {
     QString qtext("SELECT * FROM people_workers");
     QSqlQuery query(qtext);
-    qDebug() << query.lastError().text();
     QSqlQueryModel* model = new QSqlQueryModel();
     model->setQuery(query);
     emit open_main_window(model);
@@ -61,7 +60,6 @@ void manager_menu::on_add_new_subject_button_clicked()
 void manager_menu::on_add_new_job_button_clicked()
 {
     QSqlQuery query("select subject_name,id_subj from subjects");
-    qDebug() << query.lastError().text();
     QSqlQueryModel* model = new QSqlQueryModel();
     model->setQuery(query);
     emit show_add_job_dialog(model);
