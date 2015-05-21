@@ -4,7 +4,12 @@
 #include <QWidget>
 #include <QCloseEvent>
 
+#include <QSqlQuery>
 #include <QSqlQueryModel>
+#include <QSqlRecord>
+#include <QSqlField>
+#include <QVariant>
+
 
 //debug stuff
 #include <QSqlError>
@@ -32,6 +37,8 @@ private slots:
     void show_add_new_job_dialog(QSqlQueryModel* model);
 
     void on_submit_new_position_button_clicked();
+
+    void on_is_teacher_checkbox_stateChanged(int state);
 
 private:
     Ui::add_new_job *ui;
