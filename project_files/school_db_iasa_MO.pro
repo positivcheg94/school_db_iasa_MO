@@ -25,7 +25,8 @@ SOURCES =\
     manager_windows/add_new_job.cpp \
     manager_windows/add_new_subject.cpp\
     student_menu.cpp \
-    menu_base.cpp
+    menu_base.cpp \
+    editable_table_window.cpp
 
 
 
@@ -39,7 +40,8 @@ HEADERS =\
     manager_windows/add_new_job.h \
     manager_windows/add_new_subject.h\
     student_menu.h \
-    menu_base.h
+    menu_base.h \
+    editable_table_window.h
 
 
 FORMS = mainwindow.ui\
@@ -48,4 +50,5 @@ FORMS = mainwindow.ui\
     manager_windows/new_human_picker.ui \
     manager_windows/add_new_job.ui \
     manager_windows/add_new_subject.ui\
-    student_menu.ui
+    student_menu.ui \
+    editable_table_window.ui
