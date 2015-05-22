@@ -28,7 +28,8 @@ SOURCES =\
     menu_base.cpp \
     teacher_menu.cpp \
     teacher_windows/add_marks.cpp \
-    manager_windows/change_job.cpp
+    manager_windows/change_job.cpp \
+    manager_windows/administrate_position.cpp
 
 
 
@@ -45,7 +46,8 @@ HEADERS =\
     menu_base.h \
     teacher_menu.h \
     teacher_windows/add_marks.h \
-    manager_windows/change_job.h
+    manager_windows/change_job.h \
+    manager_windows/administrate_position.h
 
 
 FORMS = mainwindow.ui\
@@ -57,4 +59,5 @@ FORMS = mainwindow.ui\
     student_menu.ui \
     teacher_menu.ui \
     teacher_windows/add_marks.ui \
-    manager_windows/change_job.ui
+    manager_windows/change_job.ui \
+    manager_windows/administrate_position.ui

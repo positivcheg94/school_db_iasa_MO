@@ -23,7 +23,7 @@
       <x>19</x>
       <y>20</y>
       <width>238</width>
-      <height>227</height>
+      <height>260</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -56,9 +56,16 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="administrate_position_button">
+       <property name="text">
+        <string>Адміністрування посад</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="end_position_button">
        <property name="text">
-        <string>Закрити посаду</string>
+        <string>Завершити термін посади</string>
        </property>
       </widget>
      </item>

@@ -5,6 +5,7 @@
 #include "manager_windows/add_new_subject.h"
 #include "manager_windows/add_new_job.h"
 #include "manager_windows/change_job.h"
+#include "manager_windows/administrate_position.h"
 
 #include "menu_base.h" //which is actually QMainWindow
 #include <QSqlDatabase>
@@ -27,6 +28,7 @@ public:
 signals:
     void show_add_job_dialog(QSqlQueryModel*);
     void show_change_job_dialog(QSqlQueryModel*,QSqlQueryModel*);
+    void show_administrating_positions_dialog(QSqlQueryModel*);
 
 
 private slots:
@@ -38,8 +40,8 @@ private slots:
     void on_add_new_human_button_clicked();
     void on_add_new_subject_button_clicked();
     void on_add_new_job_button_clicked();
-
     void on_change_job_button_clicked();
+    void on_administrate_position_button_clicked();
 
 private:
     Ui::manager_menu *ui;
@@ -47,6 +49,7 @@ private:
     add_new_subject* a_new_subject;
     add_new_job* a_new_job;
     change_job* ch_job;
+    administrate_position* ad_positions;
     int staff_id;
 
 };

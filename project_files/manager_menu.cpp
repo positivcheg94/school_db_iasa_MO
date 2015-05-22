@@ -10,15 +10,18 @@ manager_menu::manager_menu(QWidget *parent, QString db_login) :
     a_new_subject = new add_new_subject();
     a_new_job = new add_new_job();
     ch_job = new change_job();
+    ad_positions = new administrate_position();
 
     //connects
     connect(n_human_picker,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
     connect(a_new_subject,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
     connect(a_new_job,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
     connect(ch_job,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
+    connect(ad_positions,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
 
     connect(this,SIGNAL(show_add_job_dialog(QSqlQueryModel*)),a_new_job,SLOT(show_add_new_job_dialog(QSqlQueryModel*)));
     connect(this,SIGNAL(show_change_job_dialog(QSqlQueryModel*,QSqlQueryModel*)),ch_job,SLOT(show_change_job_dialog(QSqlQueryModel*,QSqlQueryModel*)));
+    connect(this,SIGNAL(show_administrating_positions_dialog(QSqlQueryModel*)),ad_positions,SLOT(show_administrating_positions_dialog(QSqlQueryModel*)));
 
     //Get the staff id
 
@@ -53,9 +56,11 @@ manager_menu::manager_menu(QWidget *parent, QString db_login) :
 
 manager_menu::~manager_menu()
 {
-    delete n_human_picker;
-    delete a_new_subject;
-    delete a_new_job;
+    if (n_human_picker) delete n_human_picker;
+    if (a_new_subject) delete a_new_subject;
+    if (a_new_job) delete a_new_job;
+    if (ch_job) delete ch_job;
+    if (ad_positions) delete ad_positions;
 
     delete ui;
 }
@@ -108,5 +113,14 @@ void manager_menu::on_change_job_button_clicked()
     QSqlQueryModel* model_subj = new QSqlQueryModel();
     model_subj->setQuery(query_subj);
     emit show_change_job_dialog(model,model_subj);
+    this->hide();
+}
+
+void manager_menu::on_administrate_position_button_clicked()
+{
+    QSqlQuery query("select position_name,id_position from positions order by position_name asc");
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery(query);
+    emit show_administrating_positions_dialog(model);
     this->hide();
 }
