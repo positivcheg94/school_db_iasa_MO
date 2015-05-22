@@ -11,6 +11,7 @@ manager_menu::manager_menu(QWidget *parent, QString db_login) :
     a_new_job = new add_new_job();
     ch_job = new change_job();
     ad_positions = new administrate_position();
+    exp_position = expire_position();
 
     //connects
     connect(n_human_picker,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
@@ -18,6 +19,7 @@ manager_menu::manager_menu(QWidget *parent, QString db_login) :
     connect(a_new_job,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
     connect(ch_job,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
     connect(ad_positions,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
+    connect(exp_position,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
 
     connect(this,SIGNAL(show_add_job_dialog(QSqlQueryModel*)),a_new_job,SLOT(show_add_new_job_dialog(QSqlQueryModel*)));
     connect(this,SIGNAL(show_change_job_dialog(QSqlQueryModel*,QSqlQueryModel*)),ch_job,SLOT(show_change_job_dialog(QSqlQueryModel*,QSqlQueryModel*)));

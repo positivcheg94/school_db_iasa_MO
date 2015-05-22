@@ -45,8 +45,8 @@ void windows_manager::show_login(){
 
 void windows_manager::show_main_window(QSqlQueryModel* model){
     mainwin->loadModel(model);
-    menu->hide();
     mainwin->show();
+    menu->hide();
 }
 
 void windows_manager::hide_main_window(){

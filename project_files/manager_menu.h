@@ -6,6 +6,7 @@
 #include "manager_windows/add_new_job.h"
 #include "manager_windows/change_job.h"
 #include "manager_windows/administrate_position.h"
+#include "manager_windows/expire_position.h"
 
 #include "menu_base.h" //which is actually QMainWindow
 #include <QSqlDatabase>
@@ -50,6 +51,7 @@ private:
     add_new_job* a_new_job;
     change_job* ch_job;
     administrate_position* ad_positions;
+    expire_position* exp_position;
     int staff_id;
 
 };
