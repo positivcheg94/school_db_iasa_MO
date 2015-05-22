@@ -48,13 +48,13 @@ void administrate_position::on_submit_button_clicked()
 
     qDebug() << query.numRowsAffected();
 
-    //error
-//    if (query.lastError().type()!=QSqlError::NoError){
+
+    if (query.lastError().type()!=QSqlError::NoError){
         QMessageBox msg;
         msg.setText(query.lastError().text());
         msg.exec();
-//        return;
-//    }
+        return;
+    }
 
     this->ui->position_picker->model()->deleteLater();
     this->ui->salary->clear();

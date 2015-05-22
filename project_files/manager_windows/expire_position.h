@@ -2,9 +2,11 @@
 #define EXPIRE_POSITION_H
 
 #include <QWidget>
+#include <QDate>
 #include <QCloseEvent>
 
 #include <QSqlQuery>
+#include <QSqlQueryModel>
 
 //debug stuff
 #include <QSqlError>
@@ -29,7 +31,7 @@ signals:
     void restore_main_menu();
 
 private slots:
-    void show_add_new_job_dialog(QSqlQueryModel* model);
+    void show_expire_position_dialog(QSqlQueryModel* model);
     void on_submit_button_clicked();
 
 private:

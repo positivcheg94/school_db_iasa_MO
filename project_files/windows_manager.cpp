@@ -50,8 +50,8 @@ void windows_manager::show_main_window(QSqlQueryModel* model){
 }
 
 void windows_manager::hide_main_window(){
-    mainwin->hide();
     menu->show();
+    mainwin->hide();
 }
 
 void windows_manager::process_login(QString role, QString username){

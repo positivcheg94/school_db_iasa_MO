@@ -11,7 +11,8 @@ manager_menu::manager_menu(QWidget *parent, QString db_login) :
     a_new_job = new add_new_job();
     ch_job = new change_job();
     ad_positions = new administrate_position();
-    exp_position = expire_position();
+    exp_position = new expire_position();
+    ass_human_to_position = new assign_human_to_position();
 
     //connects
     connect(n_human_picker,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
@@ -20,10 +21,13 @@ manager_menu::manager_menu(QWidget *parent, QString db_login) :
     connect(ch_job,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
     connect(ad_positions,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
     connect(exp_position,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
+    connect(ass_human_to_position,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
 
-    connect(this,SIGNAL(show_add_job_dialog(QSqlQueryModel*)),a_new_job,SLOT(show_add_new_job_dialog(QSqlQueryModel*)));
+    connect(this,SIGNAL(show_add_new_job_dialog(QSqlQueryModel*)),a_new_job,SLOT(show_add_new_job_dialog(QSqlQueryModel*)));
     connect(this,SIGNAL(show_change_job_dialog(QSqlQueryModel*,QSqlQueryModel*)),ch_job,SLOT(show_change_job_dialog(QSqlQueryModel*,QSqlQueryModel*)));
     connect(this,SIGNAL(show_administrating_positions_dialog(QSqlQueryModel*)),ad_positions,SLOT(show_administrating_positions_dialog(QSqlQueryModel*)));
+    connect(this,SIGNAL(show_expire_position_dialog(QSqlQueryModel*)),exp_position,SLOT(show_expire_position_dialog(QSqlQueryModel*)));
+    connect(this,SIGNAL(show_assign_human_to_position_dialog(QSqlQueryModel*,QSqlQueryModel*)),ass_human_to_position,SLOT(show_assign_human_to_position_dialog(QSqlQueryModel*,QSqlQueryModel*)));
 
     //Get the staff id
 
@@ -63,6 +67,8 @@ manager_menu::~manager_menu()
     if (a_new_job) delete a_new_job;
     if (ch_job) delete ch_job;
     if (ad_positions) delete ad_positions;
+    if (exp_position) delete exp_position;
+    if (ass_human_to_position) delete ass_human_to_position;
 
     delete ui;
 }
@@ -102,7 +108,7 @@ void manager_menu::on_add_new_job_button_clicked()
     QSqlQuery query("select subject_name,id_subject from subjects order by subject_name asc");
     QSqlQueryModel* model = new QSqlQueryModel();
     model->setQuery(query);
-    emit show_add_job_dialog(model);
+    emit show_add_new_job_dialog(model);
     this->hide();
 }
 
@@ -124,5 +130,26 @@ void manager_menu::on_administrate_position_button_clicked()
     QSqlQueryModel* model = new QSqlQueryModel();
     model->setQuery(query);
     emit show_administrating_positions_dialog(model);
+    this->hide();
+}
+
+void manager_menu::on_end_position_button_clicked()
+{
+    QSqlQuery query("select position_name,id_administrating_position,pos.id_position from positions pos join administrating_positions adm_pos on pos.id_position=adm_pos.id_position and adm_pos.end_date is null order by position_name asc");
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery(query);
+    emit show_expire_position_dialog(model);
+    this->hide();
+}
+
+void manager_menu::on_assign_human_job_button_clicked()
+{
+    QSqlQuery query("select first_name||' '||last_name||' '||patronymic||' - '||passport as credentials,id_human from people_workers order by credentials asc");
+    QSqlQueryModel* humans_model = new QSqlQueryModel();
+    humans_model->setQuery(query);
+    QSqlQuery query_subj("select position_name,id_position from positions order by position_name asc");
+    QSqlQueryModel* positions_model = new QSqlQueryModel();
+    positions_model->setQuery(query_subj);
+    emit show_assign_human_to_position_dialog(humans_model,positions_model);
     this->hide();
 }

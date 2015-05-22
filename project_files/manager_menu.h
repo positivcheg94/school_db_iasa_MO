@@ -7,6 +7,7 @@
 #include "manager_windows/change_job.h"
 #include "manager_windows/administrate_position.h"
 #include "manager_windows/expire_position.h"
+#include "manager_windows/assign_human_to_position.h"
 
 #include "menu_base.h" //which is actually QMainWindow
 #include <QSqlDatabase>
@@ -27,9 +28,11 @@ public:
     virtual ~manager_menu();
 
 signals:
-    void show_add_job_dialog(QSqlQueryModel*);
+    void show_add_new_job_dialog(QSqlQueryModel*);
     void show_change_job_dialog(QSqlQueryModel*,QSqlQueryModel*);
     void show_administrating_positions_dialog(QSqlQueryModel*);
+    void show_expire_position_dialog(QSqlQueryModel*);
+    void show_assign_human_to_position_dialog(QSqlQueryModel*,QSqlQueryModel*);
 
 
 private slots:
@@ -43,6 +46,8 @@ private slots:
     void on_add_new_job_button_clicked();
     void on_change_job_button_clicked();
     void on_administrate_position_button_clicked();
+    void on_end_position_button_clicked();
+    void on_assign_human_job_button_clicked();
 
 private:
     Ui::manager_menu *ui;
@@ -52,6 +57,7 @@ private:
     change_job* ch_job;
     administrate_position* ad_positions;
     expire_position* exp_position;
+    assign_human_to_position* ass_human_to_position;
     int staff_id;
 
 };
