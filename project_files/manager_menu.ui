@@ -23,7 +23,7 @@
       <x>19</x>
       <y>20</y>
       <width>238</width>
-      <height>194</height>
+      <height>227</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -35,9 +35,9 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="show_humans_button">
+      <widget class="QPushButton" name="add_new_subject_button">
        <property name="text">
-        <string>Показати людей</string>
+        <string>Додати новий предмет</string>
        </property>
       </widget>
      </item>
@@ -56,16 +56,23 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="assign_human_job_button">
+      <widget class="QPushButton" name="end_position_button">
        <property name="text">
-        <string>Призначити людину на посаду</string>
+        <string>Закрити посаду</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="add_new_subject_button">
+      <widget class="QPushButton" name="show_humans_button">
        <property name="text">
-        <string>Додати новий предмет</string>
+        <string>Показати список людей</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="assign_human_job_button">
+       <property name="text">
+        <string>Призначити людину на посаду</string>
        </property>
       </widget>
      </item>

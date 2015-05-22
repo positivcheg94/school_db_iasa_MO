@@ -9,13 +9,16 @@ manager_menu::manager_menu(QWidget *parent, QString db_login) :
     n_human_picker = new new_human_picker();
     a_new_subject = new add_new_subject();
     a_new_job = new add_new_job();
+    ch_job = new change_job();
 
     //connects
     connect(n_human_picker,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
     connect(a_new_subject,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
     connect(a_new_job,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
+    connect(ch_job,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
 
     connect(this,SIGNAL(show_add_job_dialog(QSqlQueryModel*)),a_new_job,SLOT(show_add_new_job_dialog(QSqlQueryModel*)));
+    connect(this,SIGNAL(show_change_job_dialog(QSqlQueryModel*,QSqlQueryModel*)),ch_job,SLOT(show_change_job_dialog(QSqlQueryModel*,QSqlQueryModel*)));
 
     //Get the staff id
 
@@ -89,9 +92,21 @@ void manager_menu::on_add_new_subject_button_clicked()
 
 void manager_menu::on_add_new_job_button_clicked()
 {
-    QSqlQuery query("select subject_name,id_subj from subjects");
+    QSqlQuery query("select subject_name,id_subject from subjects order by subject_name asc");
     QSqlQueryModel* model = new QSqlQueryModel();
     model->setQuery(query);
     emit show_add_job_dialog(model);
+    this->hide();
+}
+
+void manager_menu::on_change_job_button_clicked()
+{
+    QSqlQuery query("select position_name,id_subject,id_position from positions order by position_name asc");
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery(query);
+    QSqlQuery query_subj("select subject_name,id_subject from subjects order by subject_name asc");
+    QSqlQueryModel* model_subj = new QSqlQueryModel();
+    model_subj->setQuery(query_subj);
+    emit show_change_job_dialog(model,model_subj);
     this->hide();
 }

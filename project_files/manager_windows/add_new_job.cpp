@@ -16,6 +16,8 @@ add_new_job::~add_new_job()
 void add_new_job::closeEvent(QCloseEvent *event) {
     event->ignore();
     this->ui->subject_picker->model()->deleteLater();
+    this->ui->position_name_edit->clear();
+    this->ui->is_teacher_checkbox->setCheckState(Qt::Unchecked);
     emit restore_main_menu();
     this->hide();
 }
@@ -35,16 +37,10 @@ void add_new_job::on_submit_new_position_button_clicked()
     query.prepare("insert into positions(position_name,id_subject) values(?,?)");
     query.addBindValue(subject_name);
 
-    if(this->ui->is_teacher_checkbox->checkState())
+    if(this->ui->is_teacher_checkbox->checkState() == Qt::Unchecked)
         query.addBindValue(QVariant(QVariant::Int));
-    else{
-        QSqlQueryModel* model = reinterpret_cast<QSqlQueryModel*> (this->ui->subject_picker->model());
-        QSqlRecord record = model->record(picked_index);
-        QSqlField field = record.field(1);
-        QVariant qvar = field.value();
-        int id = qvar.Int;
-        query.addBindValue(id);
-    }
+    else
+        query.addBindValue(this->ui->subject_picker->model()->index(picked_index,1).data().toInt());
 
     query.exec();
 
@@ -58,8 +54,8 @@ void add_new_job::on_submit_new_position_button_clicked()
 
     this->ui->position_name_edit->clear();
     this->ui->is_teacher_checkbox->setCheckState(Qt::Unchecked);
-
     this->ui->subject_picker->model()->deleteLater();
+
     emit restore_main_menu();
     this->hide();
 }
