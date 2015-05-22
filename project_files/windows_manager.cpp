@@ -65,7 +65,7 @@ void windows_manager::process_login(QString role, QString username){
         menu = new manager_menu(0,username);
     }
     else if (role == "teacher"){
-
+        menu = new teacher_menu(0,username);
     }
     else if (role == "admin"){
 

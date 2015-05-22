@@ -26,7 +26,8 @@ SOURCES =\
     manager_windows/add_new_subject.cpp\
     student_menu.cpp \
     menu_base.cpp \
-    editable_table_window.cpp
+    teacher_menu.cpp \
+    teacher_windows/add_marks.cpp
 
 
 
@@ -41,7 +42,8 @@ HEADERS =\
     manager_windows/add_new_subject.h\
     student_menu.h \
     menu_base.h \
-    editable_table_window.h
+    teacher_menu.h \
+    teacher_windows/add_marks.h
 
 
 FORMS = mainwindow.ui\
@@ -51,4 +53,5 @@ FORMS = mainwindow.ui\
     manager_windows/add_new_job.ui \
     manager_windows/add_new_subject.ui\
     student_menu.ui \
-    editable_table_window.ui
+    teacher_menu.ui \
+    teacher_windows/add_marks.ui

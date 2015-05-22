@@ -20,10 +20,9 @@ manager_menu::manager_menu(QWidget *parent, QString db_login) :
     //Get the staff id
 
     if(db_login.length()) {
-        QString qtext("SELECT sl.id_personnel, fio(last_name, first_name, patronymic) AS fio "
+        QString qtext("SELECT sl.id_human, fio(last_name, first_name, patronymic) AS fio "
                       "FROM staff_logins sl "
-                      "LEFT JOIN personnel p ON sl.id_personnel=p.id_personnel "
-                      "LEFT JOIN people_workers w on w.id_human=p.id_human "
+                      "LEFT JOIN people_workers p ON sl.id_human=p.id_human "
                       "WHERE sl.db_login =?;");
 
         QSqlQuery query;

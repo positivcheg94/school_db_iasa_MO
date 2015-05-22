@@ -8,6 +8,7 @@
 
 #include "manager_menu.h"
 #include "student_menu.h"
+#include "teacher_menu.h"
 
 #include "mainwindow.h"
 
