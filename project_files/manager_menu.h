@@ -39,7 +39,12 @@ private slots:
     virtual void restore_menu();
 
     //buttons
-    void on_show_humans_button_clicked();
+        //show
+        void on_show_humans_button_clicked();
+        void on_show_subjects_button_clicked();
+        void on_show_positions_button_clicked();
+        void on_show_administrating_positions_button_clicked();
+        void on_show_personel_button_clicked();
 
     void on_add_new_human_button_clicked();
     void on_add_new_subject_button_clicked();
@@ -48,6 +53,8 @@ private slots:
     void on_administrate_position_button_clicked();
     void on_end_position_button_clicked();
     void on_assign_human_job_button_clicked();
+
+
 
 private:
     Ui::manager_menu *ui;

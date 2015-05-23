@@ -45,11 +45,15 @@ void add_new_job::on_submit_new_position_button_clicked()
     query.exec();
 
     //error
+    QMessageBox msg;
     if (query.lastError().type()!=QSqlError::NoError){
-        QMessageBox msg;
         msg.setText(query.lastError().text());
         msg.exec();
         return;
+    }
+    else{
+        msg.setText("Rows affected - "+QString::number(query.numRowsAffected()));
+        msg.exec();
     }
 
     this->ui->position_name_edit->clear();

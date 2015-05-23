@@ -153,3 +153,43 @@ void manager_menu::on_assign_human_job_button_clicked()
     emit show_assign_human_to_position_dialog(humans_model,positions_model);
     this->hide();
 }
+
+void manager_menu::on_show_subjects_button_clicked()
+{
+    QString qtext("SELECT subject_name,hours_quantity,study_programe FROM subjects order by subject_name");
+    QSqlQuery query(qtext);
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery(query);
+    emit open_main_window(model);
+    this->hide();
+}
+
+void manager_menu::on_show_positions_button_clicked()
+{
+    QString qtext("SELECT position_name,subject_name FROM positions p join subjects s on p.id_subject=s.id_subject order by position_name");
+    QSqlQuery query(qtext);
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery(query);
+    emit open_main_window(model);
+    this->hide();
+}
+
+void manager_menu::on_show_administrating_positions_button_clicked()
+{
+    QString qtext("SELECT position_name,salary,position_quantity,start_date,end_date FROM administrating_positions a join positions p on a.id_position=p.id_position order by position_name");
+    QSqlQuery query(qtext);
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery(query);
+    emit open_main_window(model);
+    this->hide();
+}
+
+void manager_menu::on_show_personel_button_clicked()
+{
+    QString qtext("SELECT first_name||' '||last_name||' '||patronymic||' - '||passport as credentials,position_name,incentive,start_working_date,end_working_date FROM personnel p join people_workers pw on p.id_human=pw.id_human join positions pos on p.id_position=pos.id_position");
+    QSqlQuery query(qtext);
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery(query);
+    emit open_main_window(model);
+    this->hide();
+}

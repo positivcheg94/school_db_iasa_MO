@@ -48,14 +48,16 @@ void assign_human_to_position::on_submit_button_clicked()
     query.addBindValue(QVariant(QVariant::Date));
     query.exec();
 
-    qDebug() << query.numRowsAffected();
-
-
+    //error
+    QMessageBox msg;
     if (query.lastError().type()!=QSqlError::NoError){
-        QMessageBox msg;
         msg.setText(query.lastError().text());
         msg.exec();
         return;
+    }
+    else{
+        msg.setText("Rows affected - "+QString::number(query.numRowsAffected()));
+        msg.exec();
     }
 
     this->ui->human_picker->model()->deleteLater();

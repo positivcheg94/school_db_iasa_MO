@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>266</width>
-    <height>404</height>
+    <height>444</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,10 +20,10 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>19</x>
-      <y>20</y>
-      <width>238</width>
-      <height>260</height>
+      <x>10</x>
+      <y>10</y>
+      <width>248</width>
+      <height>392</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -83,6 +83,34 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="show_subjects_button">
+       <property name="text">
+        <string>Показати предмети</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="show_positions_button">
+       <property name="text">
+        <string>Показати посади</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="show_administrating_positions_button">
+       <property name="text">
+        <string>Показати адміністрівання посад</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="show_personel_button">
+       <property name="text">
+        <string>Показати персонал</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
   </widget>
@@ -96,7 +124,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

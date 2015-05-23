@@ -37,11 +37,17 @@ void new_human_picker::on_submit_button_clicked()
     query.addBindValue(passport);
     query.addBindValue(code);
     query.exec();
+
+    //error
+    QMessageBox msg;
     if (query.lastError().type()!=QSqlError::NoError){
-        QMessageBox msg;
         msg.setText(query.lastError().text());
         msg.exec();
         return;
+    }
+    else{
+        msg.setText("Rows affected - "+QString::number(query.numRowsAffected()));
+        msg.exec();
     }
 
     emit restore_main_menu();

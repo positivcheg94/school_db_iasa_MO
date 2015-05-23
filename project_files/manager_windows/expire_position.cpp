@@ -34,15 +34,18 @@ void expire_position::on_submit_button_clicked()
     query.prepare("update administrating_positions set end_date=? where id_administrating_position=?");
     query.addBindValue(date.toString("yyyy-M-d"));
     query.addBindValue(id_administrating_position);
-
     query.exec();
 
     //error
+    QMessageBox msg;
     if (query.lastError().type()!=QSqlError::NoError){
-        QMessageBox msg;
         msg.setText(query.lastError().text());
         msg.exec();
         return;
+    }
+    else{
+        msg.setText("Rows affected - "+QString::number(query.numRowsAffected()));
+        msg.exec();
     }
 
     this->ui->position_picker->model()->deleteLater();

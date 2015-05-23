@@ -55,15 +55,18 @@ void change_job::on_submit_position_button_clicked()
         query.addBindValue(this->ui->subject_picker->model()->index(subject_index,1).data().toInt());
 
     query.addBindValue(this->ui->pick_position_combobox->model()->index(position_index,2).data().toInt());
-
     query.exec();
 
     //error
+    QMessageBox msg;
     if (query.lastError().type()!=QSqlError::NoError){
-        QMessageBox msg;
         msg.setText(query.lastError().text());
         msg.exec();
         return;
+    }
+    else{
+        msg.setText("Rows affected - "+QString::number(query.numRowsAffected()));
+        msg.exec();
     }
 
     this->ui->position_name_edit->clear();
