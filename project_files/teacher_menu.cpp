@@ -9,8 +9,6 @@ teacher_menu::teacher_menu(QWidget *parent,QString db_login) :
 
     ui->setupUi(this);
 
-    connect(a_marks,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
-
     if(db_login.length()) {
         QString qtext("SELECT sl.id_human, fio(last_name, first_name, patronymic) AS fio "
                       "FROM staff_logins sl "
@@ -40,6 +38,8 @@ teacher_menu::teacher_menu(QWidget *parent,QString db_login) :
     }
 
     a_marks=new add_marks(0,staff_id);
+
+    connect(a_marks,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
 }
 
 teacher_menu::~teacher_menu()
