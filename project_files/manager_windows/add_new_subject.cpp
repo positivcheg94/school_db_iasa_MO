@@ -31,11 +31,17 @@ void add_new_subject::on_submit_new_subject_button_clicked()
     query.addBindValue(hours_quantity.toInt());
     query.addBindValue(study_programe);
     query.exec();
+
+    //error
+    QMessageBox msg;
     if (query.lastError().type()!=QSqlError::NoError){
-        QMessageBox msg;
         msg.setText(query.lastError().text());
         msg.exec();
         return;
+    }
+    else{
+        msg.setText("Rows affected - "+QString::number(query.numRowsAffected()));
+        msg.exec();
     }
 
     emit restore_main_menu();

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>266</width>
-    <height>404</height>
+    <height>444</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,10 +20,10 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>19</x>
-      <y>20</y>
-      <width>238</width>
-      <height>194</height>
+      <x>10</x>
+      <y>10</y>
+      <width>248</width>
+      <height>392</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -35,9 +35,9 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="show_humans_button">
+      <widget class="QPushButton" name="add_new_subject_button">
        <property name="text">
-        <string>Показати людей</string>
+        <string>Додати новий предмет</string>
        </property>
       </widget>
      </item>
@@ -56,6 +56,27 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="administrate_position_button">
+       <property name="text">
+        <string>Адміністрування посад</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="end_position_button">
+       <property name="text">
+        <string>Завершити термін посади</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="show_humans_button">
+       <property name="text">
+        <string>Показати список людей</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="assign_human_job_button">
        <property name="text">
         <string>Призначити людину на посаду</string>
@@ -63,9 +84,30 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="add_new_subject_button">
+      <widget class="QPushButton" name="show_subjects_button">
        <property name="text">
-        <string>Додати новий предмет</string>
+        <string>Показати предмети</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="show_positions_button">
+       <property name="text">
+        <string>Показати посади</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="show_administrating_positions_button">
+       <property name="text">
+        <string>Показати адміністрівання посад</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="show_personel_button">
+       <property name="text">
+        <string>Показати персонал</string>
        </property>
       </widget>
      </item>
@@ -82,7 +124,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
