@@ -103,6 +103,7 @@ void manager_menu::on_add_new_subject_button_clicked()
     this->hide();
 }
 
+
 void manager_menu::on_add_new_job_button_clicked()
 {
     QSqlQuery query("select subject_name,id_subject from subjects order by subject_name asc");
@@ -156,7 +157,7 @@ void manager_menu::on_assign_human_job_button_clicked()
 
 void manager_menu::on_show_subjects_button_clicked()
 {
-    QString qtext("SELECT subject_name,hours_quantity,study_programe FROM subjects order by subject_name");
+    QString qtext("SELECT subject_name as \"Назва предмета\",hours_quantity as \"Кількість годин\",study_programe as \"Програма навчання\" FROM subjects order by subject_name");
     QSqlQuery query(qtext);
     QSqlQueryModel* model = new QSqlQueryModel();
     model->setQuery(query);
@@ -166,7 +167,7 @@ void manager_menu::on_show_subjects_button_clicked()
 
 void manager_menu::on_show_positions_button_clicked()
 {
-    QString qtext("SELECT position_name,subject_name FROM positions p join subjects s on p.id_subject=s.id_subject order by position_name");
+    QString qtext("SELECT position_name as \"Назва посади\",subject_name as \"Назва предмета\" FROM positions p join subjects s on p.id_subject=s.id_subject order by position_name");
     QSqlQuery query(qtext);
     QSqlQueryModel* model = new QSqlQueryModel();
     model->setQuery(query);
@@ -176,7 +177,7 @@ void manager_menu::on_show_positions_button_clicked()
 
 void manager_menu::on_show_administrating_positions_button_clicked()
 {
-    QString qtext("SELECT position_name,salary,position_quantity,start_date,end_date FROM administrating_positions a join positions p on a.id_position=p.id_position order by position_name");
+    QString qtext("SELECT position_name as \"Назва посади\",salary as \"Зарплата\",position_quantity as \"Кількість місць\",start_date as \"Дата початку\",end_date as \"Дата закінчення\" FROM administrating_positions a join positions p on a.id_position=p.id_position order by position_name");
     QSqlQuery query(qtext);
     QSqlQueryModel* model = new QSqlQueryModel();
     model->setQuery(query);
@@ -186,7 +187,7 @@ void manager_menu::on_show_administrating_positions_button_clicked()
 
 void manager_menu::on_show_personel_button_clicked()
 {
-    QString qtext("SELECT first_name||' '||last_name||' '||patronymic||' - '||passport as credentials,position_name,incentive,start_working_date,end_working_date FROM personnel p join people_workers pw on p.id_human=pw.id_human join positions pos on p.id_position=pos.id_position");
+    QString qtext("SELECT first_name||' '||last_name||' '||patronymic||' - '||passport as \"Людина\", position_name as \"Назва посади\", incentive as \"Надбавка\", start_working_date as \"Дата початку роботи\", end_working_date as \"Дата закінчення роботи\" FROM personnel p join people_workers pw on p.id_human=pw.id_human join positions pos on p.id_position=pos.id_position");
     QSqlQuery query(qtext);
     QSqlQueryModel* model = new QSqlQueryModel();
     model->setQuery(query);
