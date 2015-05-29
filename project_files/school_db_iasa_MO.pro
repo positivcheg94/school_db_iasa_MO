@@ -40,7 +40,8 @@ SOURCES =\
     manager_windows/expire_human_on_position.cpp \
     learning_manager_windows/add_new_class.cpp \
     learning_manager_windows/assign_pupil_to_class.cpp \
-    temporary_not_working_windows/another_reason_widget.cpp
+    temporary_not_working_windows/another_reason_widget.cpp \
+    learning_manager_windows/add_schedule_entry.cpp
 
 
 
@@ -69,7 +70,8 @@ HEADERS =\
     learning_manager_windows/add_new_student.h \
     learning_manager_windows/add_new_class.h \
     learning_manager_windows/assign_pupil_to_class.h \
-    temporary_not_working_windows/another_reason_widget.h
+    temporary_not_working_windows/another_reason_widget.h \
+    learning_manager_windows/add_schedule_entry.h
 
 
 FORMS = mainwindow.ui\
@@ -93,5 +95,6 @@ FORMS = mainwindow.ui\
     temporary_not_working_windows/another_reason_widget.ui \
     learning_manager_windows/add_new_student.ui \
     learning_manager_windows/add_new_class.ui \
-    learning_manager_windows/assign_pupil_to_class.ui
+    learning_manager_windows/assign_pupil_to_class.ui \
+    learning_manager_windows/add_schedule_entry.ui
 

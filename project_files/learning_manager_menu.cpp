@@ -8,6 +8,7 @@ learning_manager_menu::learning_manager_menu(QWidget *parent) :
     a_n_s = new add_new_student();
     a_n_c = new add_new_class();
     a_p_t_c = new assign_pupil_to_class();
+    a_s_e = new add_schedule_entry();
     ui->setupUi(this);
 }
 
@@ -16,6 +17,7 @@ learning_manager_menu::~learning_manager_menu()
     if(a_n_s) delete a_n_s;
     if(a_n_c) delete a_n_c;
     if(a_p_t_c) delete a_p_t_c;
+    if(a_s_e) delete a_s_e;
     delete ui;
 }
 
@@ -62,4 +64,9 @@ void learning_manager_menu::on_view_classes_clicked()
     model->setQuery(query);
     emit open_main_window(model);
     this->hide();
+}
+
+void learning_manager_menu::on_addSchedule_clicked()
+{
+    a_s_e->show_add_schedule_entry();
 }
