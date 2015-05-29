@@ -31,7 +31,8 @@ SOURCES =\
     manager_windows/change_job.cpp \
     manager_windows/administrate_position.cpp \
     manager_windows/expire_position.cpp \
-    manager_windows/assign_human_to_position.cpp
+    manager_windows/assign_human_to_position.cpp \
+    learning_manager_menu.cpp
 
 
 
@@ -51,7 +52,8 @@ HEADERS =\
     manager_windows/change_job.h \
     manager_windows/administrate_position.h \
     manager_windows/expire_position.h \
-    manager_windows/assign_human_to_position.h
+    manager_windows/assign_human_to_position.h \
+    learning_manager_menu.h
 
 
 FORMS = mainwindow.ui\
@@ -66,4 +68,5 @@ FORMS = mainwindow.ui\
     manager_windows/change_job.ui \
     manager_windows/administrate_position.ui \
     manager_windows/expire_position.ui \
-    manager_windows/assign_human_to_position.ui
+    manager_windows/assign_human_to_position.ui \
+    learningmanagermenu.ui

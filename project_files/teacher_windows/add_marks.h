@@ -42,6 +42,11 @@ private slots:
     
 private:
     Ui::add_marks *ui;
+    void loadSubjects(int staff_id);
+
+    void loadClasses (int index);
+
+    void loadMarks(int index);
 };
 
 #endif // ADD_MARKS_H

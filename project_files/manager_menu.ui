@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>266</width>
-    <height>444</height>
+    <width>251</width>
+    <height>619</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,8 +22,8 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>248</width>
-      <height>392</height>
+      <width>359</width>
+      <height>542</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -111,6 +111,13 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="show_learning_manager_menu_button">
+       <property name="text">
+        <string>Показати навчальне меню</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
   </widget>
@@ -119,8 +126,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>266</width>
-     <height>25</height>
+     <width>251</width>
+     <height>38</height>
     </rect>
    </property>
   </widget>

@@ -13,7 +13,7 @@ manager_menu::manager_menu(QWidget *parent, QString db_login) :
     ad_positions = new administrate_position();
     exp_position = new expire_position();
     ass_human_to_position = new assign_human_to_position();
-
+    learn_man_menu = new learning_manager_menu();
     //connects
     connect(n_human_picker,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
     connect(a_new_subject,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
@@ -22,6 +22,7 @@ manager_menu::manager_menu(QWidget *parent, QString db_login) :
     connect(ad_positions,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
     connect(exp_position,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
     connect(ass_human_to_position,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
+    connect(learn_man_menu,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
 
     connect(this,SIGNAL(show_add_new_job_dialog(QSqlQueryModel*)),a_new_job,SLOT(show_add_new_job_dialog(QSqlQueryModel*)));
     connect(this,SIGNAL(show_change_job_dialog(QSqlQueryModel*,QSqlQueryModel*)),ch_job,SLOT(show_change_job_dialog(QSqlQueryModel*,QSqlQueryModel*)));
@@ -191,5 +192,11 @@ void manager_menu::on_show_personel_button_clicked()
     QSqlQueryModel* model = new QSqlQueryModel();
     model->setQuery(query);
     emit open_main_window(model);
+    this->hide();
+}
+
+void manager_menu::on_show_learning_manager_menu_button_clicked()
+{
+    learn_man_menu->show();
     this->hide();
 }

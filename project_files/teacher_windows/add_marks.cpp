@@ -7,12 +7,14 @@ add_marks::add_marks(QWidget *parent, int staff_id) :
 {
     ui->setupUi(this);
     if(staff_id) {
-        QString qtext = "SELECT s.subject_name, s.id_subject, p.id_personnel FROM people_workers pw "
-                        " JOIN personnel p ON pw.id_human=p.id_human "
-                        " JOIN positions pos ON p.id_position=pos.id_position "
-                        " JOIN subjects s ON s.id_subject=pos.id_subject"
-                        " WHERE pw.id_human = ?"
-                        " ORDER BY s.subject_name ASC;";
+        QString qtext = "SELECT DISTINCT ON (pw.id_human,id_subject) "
+                        " s.subject_name, s.id_subject, p.id_personnel "
+                        "FROM people_workers pw "
+                        "JOIN personnel p ON pw.id_human=p.id_human "
+                        "JOIN positions pos ON p.id_position=pos.id_position "
+                        "JOIN subjects s ON s.id_subject=pos.id_subject "
+                        "WHERE pw.id_human = ? "
+                        "ORDER BY pw.id_human, id_subject, s.subject_name ASC, end_working_date DESC;";
 
         //TODO: UNION with changes
 
@@ -40,8 +42,7 @@ void add_marks::closeEvent(QCloseEvent *event) {
 }
 
 
-void add_marks::on_cbSubjects_currentIndexChanged(int index)
-{
+void add_marks::loadClasses(int index) {
     QString qtext = "SELECT DISTINCT class_num(creation_date) || letter AS class_name, id_class "
                     "FROM ("
                         "SELECT  DISTINCT ON (s.day_of_week, s.lesson_number, s.id_class) * "
@@ -55,6 +56,7 @@ void add_marks::on_cbSubjects_currentIndexChanged(int index)
     QSqlQuery query;
     query.prepare(qtext);
     query.addBindValue(this->ui->cbSubjects->model()->index(index,2).data().toInt());
+    qDebug() <<(this->ui->cbSubjects->model()->index(index,2).data().toInt());
     query.exec();
 
     QSqlQueryModel* model = new QSqlQueryModel();
@@ -62,6 +64,11 @@ void add_marks::on_cbSubjects_currentIndexChanged(int index)
 
     if(ui->cbClasses->model()) ui->cbClasses->model()->deleteLater();
     ui->cbClasses->setModel(model);
+}
+
+void add_marks::on_cbSubjects_currentIndexChanged(int index)
+{
+   loadClasses(index);
 }
 
 

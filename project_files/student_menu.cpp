@@ -54,8 +54,8 @@ void student_menu::restore_menu()
 void student_menu::on_see_rozklad_clicked()
 {
     QString qtext("SELECT День,№,Предмет, Вчитель FROM current_schedule cs "
-                  "ORDER BY День, №; "
-                  "WHERE Клас = ?");
+                  "WHERE Клас = ? "
+                  "ORDER BY День, № ");
     QSqlQuery query;
     query.prepare(qtext);
     query.addBindValue(class_name);

@@ -9,6 +9,7 @@
 #include "manager_windows/expire_position.h"
 #include "manager_windows/assign_human_to_position.h"
 
+#include "learning_manager_menu.h"
 #include "menu_base.h" //which is actually QMainWindow
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -53,9 +54,8 @@ private slots:
     void on_administrate_position_button_clicked();
     void on_end_position_button_clicked();
     void on_assign_human_job_button_clicked();
-
-
-
+    void on_show_learning_manager_menu_button_clicked();
+    
 private:
     Ui::manager_menu *ui;
     new_human_picker* n_human_picker;
@@ -65,6 +65,7 @@ private:
     administrate_position* ad_positions;
     expire_position* exp_position;
     assign_human_to_position* ass_human_to_position;
+    learning_manager_menu* learn_man_menu;
     int staff_id;
 
 };
