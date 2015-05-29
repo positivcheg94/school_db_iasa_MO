@@ -31,9 +31,11 @@ signals:
     void restore_main_menu();
 
 private slots:
-    void show_assign_human_to_position_dialog(QSqlQueryModel* humans_model,QSqlQueryModel* positions_model);
+    void show_assign_human_to_position_dialog();
 
     void on_submit_button_clicked();
+
+    void on_end_date_is_active_stateChanged(int state);
 
 private:
     Ui::assign_human_to_position *ui;

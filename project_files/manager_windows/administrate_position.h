@@ -31,9 +31,11 @@ signals:
     void restore_main_menu();
 
 private slots:
-    void show_administrating_positions_dialog(QSqlQueryModel* model);
+    void show_administrating_positions_dialog();
 
     void on_submit_button_clicked();
+
+    void on_end_date_is_active_stateChanged(int state);
 
 private:
     Ui::administrate_position *ui;

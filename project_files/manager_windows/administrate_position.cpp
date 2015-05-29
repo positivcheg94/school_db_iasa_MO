@@ -24,7 +24,10 @@ void administrate_position::closeEvent(QCloseEvent *event) {
     this->hide();
 }
 
-void administrate_position::show_administrating_positions_dialog(QSqlQueryModel* model){
+void administrate_position::show_administrating_positions_dialog(){
+    QSqlQuery query("select position_name,id_position from positions order by position_name asc");
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery(query);
     this->ui->position_picker->setModel(model);
     this->show();
 }
@@ -43,7 +46,10 @@ void administrate_position::on_submit_button_clicked()
     query.addBindValue(salary);
     query.addBindValue(position_quantity);
     query.addBindValue(date);
-    query.addBindValue(QVariant(QVariant::Date));
+    if(this->ui->end_date_is_active->checkState() == Qt::Unchecked)
+        query.addBindValue(QVariant(QVariant::Date));
+    else
+        query.addBindValue(this->ui->end_date->text());
     query.exec();
 
     //error
@@ -64,4 +70,12 @@ void administrate_position::on_submit_button_clicked()
     this->ui->start_date->setDate(QDate::currentDate());
     emit restore_main_menu();
     this->hide();
+}
+
+void administrate_position::on_end_date_is_active_stateChanged(int state)
+{
+    if(state == Qt::Unchecked)
+        this->ui->end_date->setDisabled(true);
+    else
+        this->ui->end_date->setDisabled(false);
 }
