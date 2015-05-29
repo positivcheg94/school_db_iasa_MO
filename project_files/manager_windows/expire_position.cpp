@@ -20,7 +20,10 @@ void expire_position::closeEvent(QCloseEvent *event) {
     this->hide();
 }
 
-void expire_position::show_expire_position_dialog(QSqlQueryModel* model){
+void expire_position::show_expire_position_dialog(){
+    QSqlQuery query("select position_name,id_administrating_position,pos.id_position from positions pos join administrating_positions adm_pos on pos.id_position=adm_pos.id_position and adm_pos.end_date is null order by position_name asc");
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery(query);
     this->ui->position_picker->setModel(model);
     this->show();
 }

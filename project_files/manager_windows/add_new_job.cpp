@@ -22,8 +22,11 @@ void add_new_job::closeEvent(QCloseEvent *event) {
     this->hide();
 }
 
-void add_new_job::show_add_new_job_dialog(QSqlQueryModel* model)
+void add_new_job::show_add_new_job_dialog()
 {
+    QSqlQuery query("select subject_name,id_subject from subjects order by subject_name asc");
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery(query);
     this->ui->subject_picker->setModel(model);
     this->show();
 }

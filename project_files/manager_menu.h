@@ -29,11 +29,11 @@ public:
     virtual ~manager_menu();
     learning_manager_menu* learn_man_menu;
 signals:
-    void show_add_new_job_dialog(QSqlQueryModel*);
-    void show_change_job_dialog(QSqlQueryModel*,QSqlQueryModel*);
-    void show_administrating_positions_dialog(QSqlQueryModel*);
-    void show_expire_position_dialog(QSqlQueryModel*);
-    void show_assign_human_to_position_dialog(QSqlQueryModel*,QSqlQueryModel*);
+    void show_add_new_job_dialog();
+    void show_change_job_dialog();
+    void show_administrating_positions_dialog();
+    void show_expire_position_dialog();
+    void show_assign_human_to_position_dialog();
 
 
 private slots:

@@ -24,8 +24,14 @@ void change_job::closeEvent(QCloseEvent *event) {
     this->hide();
 }
 
-void change_job::show_change_job_dialog(QSqlQueryModel* model,QSqlQueryModel* model_subj)
+void change_job::show_change_job_dialog()
 {
+    QSqlQuery query("select position_name,id_subject,id_position from positions order by position_name asc");
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery(query);
+    QSqlQuery query_subj("select subject_name,id_subject from subjects order by subject_name asc");
+    QSqlQueryModel* model_subj = new QSqlQueryModel();
+    model_subj->setQuery(query_subj);
     this->ui->pick_position_combobox->setModel(model);
     this->ui->subject_picker->setModel(model_subj);
     this->show();

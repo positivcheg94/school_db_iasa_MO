@@ -35,7 +35,7 @@ signals:
     void restore_main_menu();
 
 private slots:
-    void show_change_job_dialog(QSqlQueryModel* model, QSqlQueryModel *model_subj);
+    void show_change_job_dialog();
 
     void on_is_teacher_checkbox_stateChanged(int state);
 

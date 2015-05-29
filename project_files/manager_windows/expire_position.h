@@ -31,7 +31,7 @@ signals:
     void restore_main_menu();
 
 private slots:
-    void show_expire_position_dialog(QSqlQueryModel* model);
+    void show_expire_position_dialog();
     void on_submit_button_clicked();
 
 private:

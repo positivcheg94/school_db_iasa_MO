@@ -34,7 +34,7 @@ signals:
     void restore_main_menu();
 
 private slots:
-    void show_add_new_job_dialog(QSqlQueryModel* model);
+    void show_add_new_job_dialog();
 
     void on_submit_new_position_button_clicked();
 
