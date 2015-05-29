@@ -3,6 +3,10 @@
 
 #include <QWidget>
 
+#include "temporary_not_working_windows/ill_widget.h"
+#include "temporary_not_working_windows/conferention_widget.h"
+#include "temporary_not_working_windows/another_reason_widget.h"
+
 namespace Ui {
 class temporary_not_working;
 }
@@ -17,6 +21,9 @@ public:
 
 private:
     Ui::temporary_not_working *ui;
+    ill_widget ill_wget;
+    conferention_widget conf_wget;
+    another_reason_widget another_reason_wget;
 };
 
 #endif // TEMPORARY_NOT_WORKING_H

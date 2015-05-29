@@ -34,7 +34,10 @@ SOURCES =\
     manager_windows/assign_human_to_position.cpp \
     learning_manager_menu.cpp \
     manager_windows/expire_human_on_position.cpp \
-    temporary_not_working.cpp
+    temporary_not_working.cpp \
+    temporary_not_working_windows/ill_widget.cpp \
+    temporary_not_working_windows/conferention_widget.cpp \
+    temporary_not_working_windows/another_reason_widget.cpp
 
 
 
@@ -57,7 +60,10 @@ HEADERS =\
     manager_windows/assign_human_to_position.h \
     learning_manager_menu.h \
     manager_windows/expire_human_on_position.h \
-    temporary_not_working.h
+    temporary_not_working.h \
+    temporary_not_working_windows/ill_widget.h \
+    temporary_not_working_windows/conferention_widget.h \
+    temporary_not_working_windows/another_reason_widget.h
 
 
 FORMS = mainwindow.ui\
@@ -75,4 +81,7 @@ FORMS = mainwindow.ui\
     manager_windows/assign_human_to_position.ui \
     learningmanagermenu.ui \
     manager_windows/expire_human_on_position.ui \
-    temporary_not_working.ui
+    temporary_not_working.ui \
+    temporary_not_working_windows/ill_widget.ui \
+    temporary_not_working_windows/conferention_widget.ui \
+    temporary_not_working_windows/another_reason_widget.ui

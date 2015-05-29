@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>233</width>
-    <height>269</height>
+    <width>323</width>
+    <height>344</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,7 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>80</x>
      <y>10</y>
      <width>161</width>
      <height>31</height>
@@ -26,13 +26,72 @@
     <string>Тамчасово не працюю</string>
    </property>
   </widget>
+  <widget class="QStackedWidget" name="reason_picker">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>190</y>
+     <width>151</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <widget class="QWidget" name="page"/>
+   <widget class="QWidget" name="page_2"/>
+  </widget>
+  <widget class="QListWidget" name="reason_list">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>220</y>
+     <width>111</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: rgba(0, 0, 0, 0)</string>
+   </property>
+   <property name="isWrapping" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="currentRow">
+    <number>0</number>
+   </property>
+   <item>
+    <property name="text">
+     <string>Хвороба</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Конференція</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Інша причина</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QPushButton" name="submit_button">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>300</y>
+     <width>99</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Внести</string>
+   </property>
+  </widget>
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>60</y>
-     <width>212</width>
-     <height>66</height>
+     <width>296</width>
+     <height>117</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -49,6 +108,9 @@
        <widget class="QDateEdit" name="dateEdit">
         <property name="displayFormat">
          <string>yyyy-M-d</string>
+        </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -67,6 +129,9 @@
        <widget class="QDateEdit" name="dateEdit_2">
         <property name="displayFormat">
          <string>yyyy-M-d</string>
+        </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
