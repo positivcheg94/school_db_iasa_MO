@@ -84,7 +84,7 @@ manager_menu::~manager_menu()
 //slots
 void manager_menu::on_show_humans_button_clicked()
 {
-    QString qtext("SELECT * FROM people_workers");
+    QString qtext("SELECT first_name as \"Ім’я\",last_name as \"Фамілія\",patronymic as \"По-батькові\",tel_num as \"Номер телефона\",passport as \"Номер паспорта\",code as \"Ідентифікаційний код\" FROM people_workers");
     QSqlQuery query(qtext);
     QSqlQueryModel* model = new QSqlQueryModel();
     model->setQuery(query);
@@ -169,7 +169,7 @@ void manager_menu::on_show_positions_button_clicked()
 
 void manager_menu::on_show_administrating_positions_button_clicked()
 {
-    QString qtext("SELECT position_name as \"Назва посади\",salary as \"Зарплата\",position_quantity as \"Кількість місць\",start_date as \"Дата початку\",end_date as \"Дата закінчення\" FROM administrating_positions a join positions p on a.id_position=p.id_position order by position_name");
+    QString qtext("SELECT position_name as \"Назва посади\",salary as \"Зарплата\",position_quantity as \"Кількість місць\",start_date as \"Дата початку\",end_date as \"Дата закінчення\" FROM administrating_positions a join positions p on a.id_position=p.id_position order by position_name, start_date desc");
     QSqlQuery query(qtext);
     QSqlQueryModel* model = new QSqlQueryModel();
     model->setQuery(query);
@@ -179,7 +179,7 @@ void manager_menu::on_show_administrating_positions_button_clicked()
 
 void manager_menu::on_show_personel_button_clicked()
 {
-    QString qtext("SELECT first_name||' '||last_name||' '||patronymic||' - '||passport as \"Людина\", position_name as \"Назва посади\", incentive as \"Надбавка\", start_date as \"Дата початку роботи\", end_date as \"Дата закінчення роботи\" FROM personnel p join people_workers pw on p.id_human=pw.id_human join positions pos on p.id_position=pos.id_position");
+    QString qtext("SELECT first_name||' '||last_name||' '||patronymic||' - '||passport as \"Людина\", position_name as \"Назва посади\", incentive as \"Надбавка\", start_date as \"Дата початку роботи\", end_date as \"Дата закінчення роботи\" FROM personnel p join people_workers pw on p.id_human=pw.id_human join positions pos on p.id_position=pos.id_position order by position_name asc,start_date desc");
     QSqlQuery query(qtext);
     QSqlQueryModel* model = new QSqlQueryModel();
     model->setQuery(query);
@@ -196,6 +196,7 @@ void manager_menu::on_show_learning_manager_menu_button_clicked()
 void manager_menu::on_tnw_button_clicked()
 {
     temporary_not_working tnw;
-    tnw.exec();
+    if ( tnw.exec() == QDialog::Accepted){
 
+    }
 }

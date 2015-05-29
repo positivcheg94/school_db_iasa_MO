@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QDialog>
+#include <QCloseEvent>
 #include <QComboBox>
 #include <QDebug>
 
@@ -22,15 +23,16 @@ public:
     explicit temporary_not_working(QWidget *parent = 0);
     ~temporary_not_working();
 
-    QString get_first_field(){ return field1;}
-    QString get_second_field(){ return field2;}
-    QString get_third_field(){ return field3;}
+    void closeEvent(QCloseEvent * event);
 
 private slots:
 
     void on_submit_button_clicked();
 
 public:
+    int id_reason;
+    QString start;
+    QString end;
     QString field1;
     QString field2;
     QString field3;
