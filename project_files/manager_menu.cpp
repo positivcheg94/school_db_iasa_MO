@@ -70,7 +70,7 @@ manager_menu::~manager_menu()
     if (ad_positions) delete ad_positions;
     if (exp_position) delete exp_position;
     if (ass_human_to_position) delete ass_human_to_position;
-
+    if (learn_man_menu) delete learn_man_menu;
     delete ui;
 }
 

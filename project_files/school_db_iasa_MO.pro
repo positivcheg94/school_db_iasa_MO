@@ -32,7 +32,9 @@ SOURCES =\
     manager_windows/administrate_position.cpp \
     manager_windows/expire_position.cpp \
     manager_windows/assign_human_to_position.cpp \
-    learning_manager_menu.cpp
+    learning_manager_menu.cpp \
+    learning_manager_windows/add_new_student.cpp \
+    learning_manager_windows/add_new_class.cpp
 
 
 
@@ -53,7 +55,9 @@ HEADERS =\
     manager_windows/administrate_position.h \
     manager_windows/expire_position.h \
     manager_windows/assign_human_to_position.h \
-    learning_manager_menu.h
+    learning_manager_menu.h \
+    learning_manager_windows/add_new_student.h \
+    learning_manager_windows/add_new_class.h
 
 
 FORMS = mainwindow.ui\
@@ -69,4 +73,7 @@ FORMS = mainwindow.ui\
     manager_windows/administrate_position.ui \
     manager_windows/expire_position.ui \
     manager_windows/assign_human_to_position.ui \
-    learningmanagermenu.ui
+    learningmanagermenu.ui \
+    learning_manager_windows/add_new_student.ui \
+    learning_manager_windows/add_new_class.ui
+а

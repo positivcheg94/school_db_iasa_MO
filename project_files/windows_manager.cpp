@@ -63,6 +63,8 @@ void windows_manager::process_login(QString role, QString username){
     }
     else if (role == "manager"){
         menu = new manager_menu(0,username);
+        manager_menu* man_menu = reinterpret_cast<manager_menu*>(menu);
+        connect (man_menu->learn_man_menu, SIGNAL(open_main_window(QSqlQueryModel*)),this,SLOT(show_main_window(QSqlQueryModel*)));
     }
     else if (role == "teacher"){
         menu = new teacher_menu(0,username);

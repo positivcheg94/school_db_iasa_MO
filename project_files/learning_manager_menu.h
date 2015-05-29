@@ -3,6 +3,8 @@
 
 
 #include "menu_base.h" //which is actually QMainWindow
+#include "learning_manager_windows/add_new_student.h"
+#include "learning_manager_windows/add_new_class.h"
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
@@ -39,6 +41,8 @@ private slots:
 
 private:
     Ui::LearningManagerMenu *ui;
+    add_new_student* a_n_s;
+    add_new_class* a_n_c;
     int staff_id;
 };
 

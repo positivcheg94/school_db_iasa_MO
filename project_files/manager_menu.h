@@ -27,7 +27,7 @@ class manager_menu : public menu_base
 public:
     explicit manager_menu(QWidget *parent = 0, QString db_login="");
     virtual ~manager_menu();
-
+    learning_manager_menu* learn_man_menu;
 signals:
     void show_add_new_job_dialog(QSqlQueryModel*);
     void show_change_job_dialog(QSqlQueryModel*,QSqlQueryModel*);
@@ -65,7 +65,6 @@ private:
     administrate_position* ad_positions;
     expire_position* exp_position;
     assign_human_to_position* ass_human_to_position;
-    learning_manager_menu* learn_man_menu;
     int staff_id;
 
 };
