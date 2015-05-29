@@ -31,7 +31,7 @@
     <string>Завершити роботу людини на посаді</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="submit_button">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -44,7 +44,7 @@
     <string>Внести зміни</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>40</x>

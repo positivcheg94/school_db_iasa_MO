@@ -13,7 +13,9 @@ manager_menu::manager_menu(QWidget *parent, QString db_login) :
     ad_positions = new administrate_position();
     exp_position = new expire_position();
     ass_human_to_position = new assign_human_to_position();
+    exp_human_on_position = new expire_human_on_position();
     learn_man_menu = new learning_manager_menu();
+
     //connects
     connect(n_human_picker,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
     connect(a_new_subject,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
@@ -22,6 +24,7 @@ manager_menu::manager_menu(QWidget *parent, QString db_login) :
     connect(ad_positions,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
     connect(exp_position,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
     connect(ass_human_to_position,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
+    connect(exp_human_on_position,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
     connect(learn_man_menu,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
 
     connect(this,SIGNAL(show_add_new_job_dialog()),a_new_job,SLOT(show_add_new_job_dialog()));
@@ -29,6 +32,8 @@ manager_menu::manager_menu(QWidget *parent, QString db_login) :
     connect(this,SIGNAL(show_administrating_positions_dialog()),ad_positions,SLOT(show_administrating_positions_dialog()));
     connect(this,SIGNAL(show_expire_position_dialog()),exp_position,SLOT(show_expire_position_dialog()));
     connect(this,SIGNAL(show_assign_human_to_position_dialog()),ass_human_to_position,SLOT(show_assign_human_to_position_dialog()));
+    connect(this,SIGNAL(show_expire_human_on_position_dialog()),exp_human_on_position,SLOT(show_expire_human_on_position_dialog()));
+
 
     //Get the staff id
 
@@ -70,6 +75,7 @@ manager_menu::~manager_menu()
     if (ad_positions) delete ad_positions;
     if (exp_position) delete exp_position;
     if (ass_human_to_position) delete ass_human_to_position;
+    if (exp_human_on_position) delete exp_human_on_position;
 
     delete ui;
 }
@@ -132,6 +138,12 @@ void manager_menu::on_end_position_button_clicked()
 void manager_menu::on_assign_human_job_button_clicked()
 {
     emit show_assign_human_to_position_dialog();
+    this->hide();
+}
+
+void manager_menu::on_end_human_job_button_clicked()
+{
+    emit show_expire_human_on_position_dialog();
     this->hide();
 }
 

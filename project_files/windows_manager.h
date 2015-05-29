@@ -13,7 +13,6 @@
 #include "mainwindow.h"
 
 #include <QObject>
-
 #include <QSqlDatabase>
 
 
