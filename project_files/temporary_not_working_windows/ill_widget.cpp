@@ -12,3 +12,7 @@ ill_widget::~ill_widget()
 {
     delete ui;
 }
+
+QString ill_widget::get_first(){
+    return this->ui->line1->text();
+}

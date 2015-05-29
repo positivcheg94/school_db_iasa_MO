@@ -15,6 +15,9 @@ public:
     explicit another_reason_widget(QWidget *parent = 0);
     ~another_reason_widget();
 
+    QString get_first();
+    QString get_second();
+
 private:
     Ui::another_reason_widget *ui;
 };

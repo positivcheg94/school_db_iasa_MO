@@ -192,3 +192,9 @@ void manager_menu::on_show_learning_manager_menu_button_clicked()
     learn_man_menu->show();
     this->hide();
 }
+
+void manager_menu::on_pushButton_clicked()
+{
+    temporary_not_working tnw;
+    tnw.exec();
+}

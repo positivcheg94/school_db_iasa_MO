@@ -33,16 +33,16 @@
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>330</y>
+      <y>300</y>
       <width>207</width>
-      <height>27</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
      <string>Показати навчальне меню</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>240</x>
@@ -89,7 +89,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -157,15 +157,28 @@
      </item>
     </layout>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>350</y>
+      <width>421</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Тимчасово не можу працювати</string>
+    </property>
+   </widget>
+   <zorder>show_learning_manager_menu_button</zorder>
    <zorder>layoutWidget</zorder>
-   <zorder>add_new_subject_button</zorder>
-   <zorder>change_job_button</zorder>
-   <zorder>add_new_human_button</zorder>
-   <zorder>administrate_position_button</zorder>
-   <zorder>end_position_button</zorder>
-   <zorder>add_new_job_button</zorder>
-   <zorder>assign_human_job_button</zorder>
-   <zorder>show_humans_button</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>pushButton</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

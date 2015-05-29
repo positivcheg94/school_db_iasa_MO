@@ -15,6 +15,9 @@ public:
     explicit ill_widget(QWidget *parent = 0);
     ~ill_widget();
 
+    QString get_first();
+
+
 private:
     Ui::ill_widget *ui;
 };

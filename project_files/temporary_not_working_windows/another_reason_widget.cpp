@@ -12,3 +12,11 @@ another_reason_widget::~another_reason_widget()
 {
     delete ui;
 }
+
+QString another_reason_widget::get_first(){
+    return this->ui->text1->toPlainText();
+}
+
+QString another_reason_widget::get_second(){
+    return this->ui->text2->toPlainText();
+}

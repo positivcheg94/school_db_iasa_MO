@@ -9,6 +9,7 @@
 #include "manager_windows/expire_position.h"
 #include "manager_windows/assign_human_to_position.h"
 #include "manager_windows/expire_human_on_position.h"
+#include "temporary_not_working.h"
 
 #include "learning_manager_menu.h"
 #include "menu_base.h" //which is actually QMainWindow
@@ -59,6 +60,8 @@ private slots:
     void on_show_learning_manager_menu_button_clicked();
     
     void on_end_human_job_button_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::manager_menu *ui;
