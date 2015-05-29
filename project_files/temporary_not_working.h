@@ -30,10 +30,12 @@ private slots:
 
     void on_submit_button_clicked();
 
-private:
+public:
     QString field1;
     QString field2;
     QString field3;
+
+private:
     Ui::temporary_not_working *ui;
     ill_widget ill_wget;
     conferention_widget conferention_wget;

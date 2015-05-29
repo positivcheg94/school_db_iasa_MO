@@ -57,11 +57,11 @@ private slots:
     void on_administrate_position_button_clicked();
     void on_end_position_button_clicked();
     void on_assign_human_job_button_clicked();
-    void on_show_learning_manager_menu_button_clicked();
-    
     void on_end_human_job_button_clicked();
 
-    void on_pushButton_clicked();
+    void on_show_learning_manager_menu_button_clicked();
+
+    void on_tnw_button_clicked();
 
 private:
     Ui::manager_menu *ui;

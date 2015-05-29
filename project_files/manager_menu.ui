@@ -42,63 +42,34 @@
      <string>Показати навчальне меню</string>
     </property>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QPushButton" name="tnw_button">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>20</y>
-      <width>248</width>
-      <height>161</height>
+      <x>40</x>
+      <y>350</y>
+      <width>421</width>
+      <height>71</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="lay2">
-     <item>
-      <widget class="QPushButton" name="show_humans_button">
-       <property name="text">
-        <string>Показати список людей</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="show_subjects_button">
-       <property name="text">
-        <string>Показати предмети</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="show_positions_button">
-       <property name="text">
-        <string>Показати посади</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="show_administrating_positions_button">
-       <property name="text">
-        <string>Показати адміністрівання посад</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="show_personel_button">
-       <property name="text">
-        <string>Показати персонал</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Тимчасово не можу працювати</string>
+    </property>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>19</y>
+      <x>1</x>
+      <y>20</y>
       <width>239</width>
       <height>260</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="lay1">
+    <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QPushButton" name="add_new_human_button">
        <property name="text">
@@ -157,28 +128,68 @@
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>350</y>
-      <width>421</width>
-      <height>71</height>
+      <x>241</x>
+      <y>21</y>
+      <width>248</width>
+      <height>161</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>20</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Тимчасово не можу працювати</string>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QPushButton" name="show_humans_button">
+       <property name="text">
+        <string>Показати список людей</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="show_subjects_button">
+       <property name="text">
+        <string>Показати предмети</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="show_positions_button">
+       <property name="text">
+        <string>Показати посади</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="show_administrating_positions_button">
+       <property name="text">
+        <string>Показати адміністрівання посад</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="show_personel_button">
+       <property name="text">
+        <string>Показати персонал</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
+   <zorder>show_administrating_positions_button</zorder>
+   <zorder>show_positions_button</zorder>
+   <zorder>show_personel_button</zorder>
+   <zorder>show_humans_button</zorder>
+   <zorder>show_subjects_button</zorder>
+   <zorder>end_position_button</zorder>
+   <zorder>end_human_job_button</zorder>
+   <zorder>assign_human_job_button</zorder>
+   <zorder>add_new_job_button</zorder>
+   <zorder>change_job_button</zorder>
+   <zorder>add_new_subject_button</zorder>
+   <zorder>administrate_position_button</zorder>
+   <zorder>add_new_human_button</zorder>
    <zorder>show_learning_manager_menu_button</zorder>
-   <zorder>layoutWidget</zorder>
-   <zorder>layoutWidget</zorder>
-   <zorder>pushButton</zorder>
+   <zorder>tnw_button</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
