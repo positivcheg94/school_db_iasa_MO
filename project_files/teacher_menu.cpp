@@ -37,7 +37,7 @@ teacher_menu::teacher_menu(QWidget *parent,QString db_login) :
         staff_id=0;
     }
 
-    a_marks=new add_marks(0,staff_id);
+    a_marks=new add_marks();
 
     connect(a_marks,SIGNAL(restore_main_menu()),this,SLOT(restore_menu()));
 }
@@ -55,5 +55,5 @@ void teacher_menu::restore_menu()
 
 void teacher_menu::on_marks_clicked()
 {
-    a_marks->show();
+    a_marks->show_add_marks(staff_id);
 }

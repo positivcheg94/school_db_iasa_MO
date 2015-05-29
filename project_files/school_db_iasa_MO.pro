@@ -35,7 +35,8 @@ SOURCES =\
     learning_manager_menu.cpp \
     learning_manager_windows/add_new_student.cpp \
     manager_windows/expire_human_on_position.cpp \
-    learning_manager_windows/add_new_class.cpp
+    learning_manager_windows/add_new_class.cpp \
+    learning_manager_windows/assign_pupil_to_class.cpp
 
 
 
@@ -59,7 +60,8 @@ HEADERS =\
     learning_manager_menu.h \
     manager_windows/expire_human_on_position.h \
     learning_manager_windows/add_new_student.h \
-    learning_manager_windows/add_new_class.h
+    learning_manager_windows/add_new_class.h \
+    learning_manager_windows/assign_pupil_to_class.h
 
 
 FORMS = mainwindow.ui\
@@ -78,5 +80,6 @@ FORMS = mainwindow.ui\
     learningmanagermenu.ui \
     manager_windows/expire_human_on_position.ui \
     learning_manager_windows/add_new_student.ui \
-    learning_manager_windows/add_new_class.ui
+    learning_manager_windows/add_new_class.ui \
+    learning_manager_windows/assign_pupil_to_class.ui
 

@@ -7,6 +7,7 @@ learning_manager_menu::learning_manager_menu(QWidget *parent) :
 {
     a_n_s = new add_new_student();
     a_n_c = new add_new_class();
+    a_p_t_c = new assign_pupil_to_class();
     ui->setupUi(this);
 }
 
@@ -14,6 +15,7 @@ learning_manager_menu::~learning_manager_menu()
 {
     if(a_n_s) delete a_n_s;
     if(a_n_c) delete a_n_c;
+    if(a_p_t_c) delete a_p_t_c;
     delete ui;
 }
 
@@ -33,7 +35,7 @@ void learning_manager_menu::on_addPupil_clicked()
 
 void learning_manager_menu::on_addPupilToClass_clicked()
 {
-
+    a_p_t_c->show_assign_pupil_to_class_dialog();
 }
 
 void learning_manager_menu::on_addClass_clicked()

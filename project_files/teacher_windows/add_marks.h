@@ -28,9 +28,10 @@ class add_marks : public QWidget
     Q_OBJECT
 
 public:
-    explicit add_marks(QWidget *parent = 0, int staff_id = 0);
+    explicit add_marks(QWidget *parent = 0);
     ~add_marks();
     void closeEvent (QCloseEvent *event);
+    void show_add_marks (int staff_id=0);
 
 signals:
     void restore_main_menu();
@@ -40,13 +41,15 @@ private slots:
 
     void on_cbClasses_currentIndexChanged(int index);
     
+    void on_submit_button_clicked();
+
 private:
     Ui::add_marks *ui;
     void loadSubjects(int staff_id);
 
     void loadClasses (int index);
 
-    void loadMarks(int index);
+    void loadMarks();
 };
 
 #endif // ADD_MARKS_H
