@@ -9,6 +9,7 @@
 #include <QDebug>
 #include <QMessageBox>
 #include "teacher_windows/add_marks.h"
+#include "temporary_not_working.h"
 
 namespace Ui {
 class teacher_menu;
@@ -26,6 +27,8 @@ private slots:
     virtual void restore_menu();
 
     void on_marks_clicked();
+
+    void on_tnw_button_clicked();
 
 private:
     Ui::teacher_menu *ui;

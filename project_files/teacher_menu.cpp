@@ -57,3 +57,11 @@ void teacher_menu::on_marks_clicked()
 {
     a_marks->show_add_marks(staff_id);
 }
+
+void teacher_menu::on_tnw_button_clicked()
+{
+    temporary_not_working tnw(0,staff_id);
+    if ( tnw.exec() == QDialog::Accepted){
+
+    }
+}

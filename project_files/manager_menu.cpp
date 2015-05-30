@@ -195,7 +195,7 @@ void manager_menu::on_show_learning_manager_menu_button_clicked()
 
 void manager_menu::on_tnw_button_clicked()
 {
-    temporary_not_working tnw;
+    temporary_not_working tnw(0,staff_id);
     if ( tnw.exec() == QDialog::Accepted){
 
     }

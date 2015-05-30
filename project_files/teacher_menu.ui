@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>270</width>
-    <height>239</height>
+    <width>476</width>
+    <height>270</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,6 +22,18 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QPushButton" name="tnw_button">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Тимчасово не можу працювати</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -29,7 +41,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>270</width>
+     <width>476</width>
      <height>38</height>
     </rect>
    </property>

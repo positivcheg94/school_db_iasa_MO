@@ -6,6 +6,10 @@
 #include <QCloseEvent>
 #include <QComboBox>
 #include <QDebug>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QSqlQueryModel>
+#include <QMessageBox>
 
 #include "temporary_not_working_windows/ill_widget.h"
 #include "temporary_not_working_windows/conferention_widget.h"
@@ -20,7 +24,7 @@ class temporary_not_working : public QDialog
     Q_OBJECT
 
 public:
-    explicit temporary_not_working(QWidget *parent = 0);
+    explicit temporary_not_working(QWidget *parent = 0, int s_id=0);
     ~temporary_not_working();
 
     void closeEvent(QCloseEvent * event);
@@ -36,7 +40,7 @@ public:
     QString field1;
     QString field2;
     QString field3;
-
+    int staff_id;
 private:
     Ui::temporary_not_working *ui;
     ill_widget ill_wget;
