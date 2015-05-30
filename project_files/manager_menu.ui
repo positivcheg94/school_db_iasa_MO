@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>450</height>
+    <height>369</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>500</width>
-    <height>450</height>
+    <height>300</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -45,22 +45,22 @@
    <widget class="QPushButton" name="tnw_button">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>350</y>
-      <width>421</width>
-      <height>71</height>
+      <x>10</x>
+      <y>380</y>
+      <width>241</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>20</pointsize>
+      <pointsize>12</pointsize>
      </font>
     </property>
     <property name="text">
      <string>Тимчасово не можу працювати</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>1</x>
@@ -128,7 +128,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>241</x>
@@ -175,19 +175,8 @@
      </item>
     </layout>
    </widget>
-   <zorder>show_administrating_positions_button</zorder>
-   <zorder>show_positions_button</zorder>
-   <zorder>show_personel_button</zorder>
-   <zorder>show_humans_button</zorder>
-   <zorder>show_subjects_button</zorder>
-   <zorder>end_position_button</zorder>
-   <zorder>end_human_job_button</zorder>
-   <zorder>assign_human_job_button</zorder>
-   <zorder>add_new_job_button</zorder>
-   <zorder>change_job_button</zorder>
-   <zorder>add_new_subject_button</zorder>
-   <zorder>administrate_position_button</zorder>
-   <zorder>add_new_human_button</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>layoutWidget</zorder>
    <zorder>show_learning_manager_menu_button</zorder>
    <zorder>tnw_button</zorder>
   </widget>

@@ -46,11 +46,7 @@ void administrate_position::on_submit_button_clicked()
     query.addBindValue(salary);
     query.addBindValue(position_quantity);
     query.addBindValue(date);
-    if(this->ui->end_date_is_active->checkState() == Qt::Unchecked)
-        query.addBindValue(QVariant(QVariant::Date));
-    else
-        query.addBindValue(this->ui->end_date->text());
-    query.exec();
+    query.addBindValue(QVariant(QVariant::Date));
 
     //error
     QMessageBox msg;
@@ -70,12 +66,4 @@ void administrate_position::on_submit_button_clicked()
     this->ui->start_date->setDate(QDate::currentDate());
     emit restore_main_menu();
     this->hide();
-}
-
-void administrate_position::on_end_date_is_active_stateChanged(int state)
-{
-    if(state == Qt::Unchecked)
-        this->ui->end_date->setDisabled(true);
-    else
-        this->ui->end_date->setDisabled(false);
 }

@@ -28,7 +28,6 @@ void expire_human_on_position::show_expire_human_on_position_dialog(){
     this->ui->human_picker->setModel(human_model);
     if (query.size()>0)
         emit this->ui->human_picker->setCurrentIndex(0);
-    this->ui->end_date->setDate(QDate::currentDate());
     this->show();
 }
 
@@ -49,8 +48,7 @@ void expire_human_on_position::on_submit_button_clicked()
 {
 //    this->ui->pick_position_combobox->model()->index(position_index,2).data().toInt()
     QSqlQuery query;
-    query.prepare("update personnel set end_date=? where id_personnel=?");
-    query.addBindValue(this->ui->end_date->text());
+    query.prepare("update personnel set end_date=current_date where id_personnel=?");
     query.addBindValue(this->ui->position_picker->model()->index(this->ui->position_picker->currentIndex(),1).data().toInt());
     query.exec();
 

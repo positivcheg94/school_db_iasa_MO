@@ -179,7 +179,7 @@ void manager_menu::on_show_administrating_positions_button_clicked()
 
 void manager_menu::on_show_personel_button_clicked()
 {
-    QString qtext("SELECT first_name||' '||last_name||' '||patronymic||' - '||passport as \"Людина\", position_name as \"Назва посади\", incentive as \"Надбавка\", start_date as \"Дата початку роботи\", end_date as \"Дата закінчення роботи\" FROM personnel p join people_workers pw on p.id_human=pw.id_human join positions pos on p.id_position=pos.id_position order by position_name asc,start_date desc");
+    QString qtext("SELECT first_name||' '||last_name||' '||patronymic||' - '||passport as \"Людина\", position_name as \"Назва посади\", incentive as \"Надбавка\", p.start_date as \"Дата початку роботи\", p.end_date as \"Дата закінчення роботи\" FROM personnel p join administrating_positions ap on p.id_administrating_position=ap.id_administrating_position join people_workers pw on p.id_human=pw.id_human join positions pos on ap.id_position=pos.id_position order by position_name asc,p.start_date desc");
     QSqlQuery query(qtext);
     QSqlQueryModel* model = new QSqlQueryModel();
     model->setQuery(query);

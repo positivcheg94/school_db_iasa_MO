@@ -17,8 +17,6 @@ QTableView* MainWindow::getTable(){
 }
 
 void MainWindow::loadModel(QSqlQueryModel* model) {
-
-    qDebug() << model->lastError().text();
     getTable()->setModel(model);
     this->ui->query_table->resizeColumnsToContents();
 
